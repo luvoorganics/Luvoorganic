@@ -1,0 +1,1047 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luvo Organic By Kainat Abdullah | Pure. Natural. Trusted.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green: #4D6B5A;
+            --primary-dark: #374E41;
+            --accent-gold: #C5A069;
+            --dark-text: #2A2A2A;
+            --bg-cream: #FDFBF7;
+            --card-bg: #FFFFFF;
+            --tag-bg: #E8F0EA;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Poppins', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background-color: var(--bg-cream); color: var(--dark-text); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { width: 88%; max-width: 1200px; margin: 0 auto; }
+
+        /* Header & Navigation */
+        header { background: var(--card-bg); padding: 10px 0; border-bottom: 1px solid #EAEAEA; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { max-height: 70px; cursor: pointer; object-fit: contain; }
+        nav ul { display: flex; gap: 20px; align-items: center; }
+        nav a { font-weight: 500; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; cursor: pointer; color: var(--dark-text); padding: 5px 0; }
+        nav a:hover, nav a.active { color: var(--primary-green); font-weight: 700; border-bottom: 2px solid var(--primary-green); }
+        
+        .nav-actions { display: flex; align-items: center; gap: 10px; }
+        .cart-trigger { background: var(--primary-green); color: white; padding: 8px 18px; border-radius: 20px; font-weight: 600; cursor: pointer; font-size: 0.85rem; border: none; display: flex; align-items: center; gap: 8px; }
+        .cart-trigger:hover { background: var(--primary-dark); }
+        .cart-count { background: var(--accent-gold); color: white; border-radius: 50%; padding: 2px 8px; font-size: 0.75rem; }
+        
+        .auth-nav-btn {
+            padding: 8px 18px;
+            background: var(--primary-green);
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+        .auth-nav-btn:hover { background: var(--primary-dark); }
+
+        .admin-btn { 
+            display: none; 
+            background: #333; 
+            color: white; 
+            padding: 8px 14px; 
+            border-radius: 20px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            font-size: 0.8rem; 
+            border: none; 
+        }
+
+        /* Announcement Bar */
+        .tagline-bar { background: var(--primary-green); color: white; text-align: center; padding: 10px 0; letter-spacing: 2px; font-size: 0.85rem; font-weight: 600; }
+        .voucher-badge { background: var(--accent-gold); padding: 2px 8px; border-radius: 4px; font-weight: 700; }
+
+        /* Views & Page Layouts */
+        .page-view { display: none; }
+        .page-view.active-view { display: block; }
+        .page-header { background: var(--tag-bg); padding: 50px 0; text-align: center; border-bottom: 1px solid #DDE8DF; }
+        .page-header h1 { font-family: var(--font-serif); font-size: 2.5rem; color: var(--primary-green); }
+
+        /* General UI Elements */
+        .btn { display: inline-block; padding: 12px 30px; background: var(--primary-green); color: white; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border-radius: 4px; border: 2px solid var(--primary-green); cursor: pointer; transition: 0.3s; text-align: center; }
+        .btn:hover { background: transparent; color: var(--primary-green); }
+        .btn-sm { padding: 8px 16px; font-size: 0.8rem; }
+
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 40px 0; }
+        .product-card { background: var(--card-bg); border-radius: 8px; overflow: hidden; border: 1px solid #EAEAEA; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: 0.3s; display: flex; flex-direction: column; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+        .product-info { padding: 20px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .product-badge { display: inline-block; background: var(--tag-bg); color: var(--primary-green); font-size: 0.75rem; font-weight: 600; padding: 3px 10px; border-radius: 12px; margin-bottom: 8px; }
+        .price-tag { font-weight: 700; color: var(--primary-green); margin: 10px 0; font-size: 1.1rem; }
+
+        /* Reviews & Rating System */
+        .star-rating { color: var(--accent-gold); font-size: 1.1rem; margin: 5px 0; }
+        .star-select { font-size: 1.2rem; cursor: pointer; color: #CCC; margin: 5px 0; }
+        .star-select span { transition: color 0.2s; }
+        .star-select span:hover, .star-select span.selected { color: var(--accent-gold); }
+        .review-section { border-top: 1px solid #EEE; padding: 15px; background: #FAF9F6; text-align: left; font-size: 0.85rem; }
+        .review-item { border-bottom: 1px solid #EAEAEA; padding-bottom: 8px; margin-bottom: 8px; }
+        .review-photo { max-width: 80px; max-height: 80px; border-radius: 4px; margin-top: 5px; object-fit: cover; }
+        .toggle-review-btn { background: none; border: none; color: var(--primary-green); text-decoration: underline; cursor: pointer; font-size: 0.8rem; margin-top: 8px; }
+
+        /* Slide-over Cart Drawer */
+        .cart-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; opacity: 0; pointer-events: none; transition: 0.3s ease; }
+        .cart-overlay.active { opacity: 1; pointer-events: auto; }
+        .cart-drawer { position: fixed; top: 0; right: -420px; width: 100%; max-width: 400px; height: 100%; background: white; z-index: 2001; transition: 0.3s ease; box-shadow: -5px 0 25px rgba(0,0,0,0.15); display: flex; flex-direction: column; }
+        .cart-drawer.active { right: 0; }
+        
+        .cart-header { padding: 20px; background: var(--primary-green); color: white; display: flex; justify-content: space-between; align-items: center; }
+        .cart-close { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+        .cart-body { padding: 20px; flex-grow: 1; overflow-y: auto; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #EEE; }
+        .cart-item-title { font-weight: 600; font-size: 0.9rem; }
+        .cart-item-meta { font-size: 0.8rem; color: #666; }
+
+        .cart-footer { padding: 20px; border-top: 1px solid #EEE; background: var(--bg-cream); }
+        .voucher-box { display: flex; gap: 8px; margin-bottom: 15px; }
+        .voucher-box input { flex-grow: 1; padding: 8px 12px; border: 1px solid #CCC; border-radius: 4px; font-size: 0.85rem; }
+        .summary-row { display: flex; justify-content: space-between; font-size: 0.95rem; margin-bottom: 8px; }
+        .summary-row.total { font-weight: 700; font-size: 1.1rem; color: var(--primary-green); border-top: 1px solid #CCC; padding-top: 8px; }
+
+        /* Checkout Modal */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 3000; opacity: 0; pointer-events: none; transition: 0.3s ease; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+        .checkout-modal { background: white; width: 100%; max-width: 500px; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); max-height: 90vh; display: flex; flex-direction: column; }
+        .modal-header { background: var(--primary-green); color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .modal-body { padding: 20px; overflow-y: auto; }
+
+        /* Forms */
+        form { background: white; padding: 10px; border-radius: 8px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.9rem; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 11px; border: 1px solid #CCC; border-radius: 4px; font-family: inherit; }
+
+        /* Custom Google Login Button */
+        .google-auth-btn {
+            width: 100%;
+            padding: 10px;
+            background: #ffffff;
+            color: #757575;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            transition: 0.2s;
+        }
+        .google-auth-btn:hover { background: #f8f9fa; border-color: #ccc; }
+
+        /* Admin Table Styles */
+        .admin-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.9rem; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; }
+        .admin-table th, .admin-table td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #EEE; }
+        .admin-table th { background: var(--primary-green); color: white; font-weight: 600; }
+        .admin-table tr:hover { background: var(--bg-cream); }
+
+        /* Footer */
+        footer { background: var(--dark-text); color: var(--bg-cream); padding: 50px 0 20px; margin-top: 80px; text-align: center; }
+        footer p { opacity: 0.8; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .nav-wrapper { flex-direction: column; gap: 15px; }
+            nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .cart-drawer { max-width: 100%; }
+            .admin-table { display: block; overflow-x: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Nav -->
+    <header>
+        <div class="container nav-wrapper">
+            <a onclick="switchPage('home')" class="logo">
+                <img src="https://i.ibb.co/7JSbXPkB/Screenshot-2026-08-06-181034-removebg-preview.png" alt="Luvo Organic By Kainat Abdullah Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a id="nav-home" class="active" onclick="switchPage('home')">Home</a></li>
+                    <li><a id="nav-shop" onclick="switchPage('shop')">Shop Soaps</a></li>
+                    <li><a id="nav-about" onclick="switchPage('about')">Our Story</a></li>
+                    <li><a id="nav-contact" onclick="switchPage('contact')">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button id="open-auth-btn" class="auth-nav-btn" onclick="openAuthModal()">Login / Sign Up</button>
+                <button class="cart-trigger" onclick="toggleCart()">🛒 Cart <span class="cart-count" id="cart-count">0</span></button>
+                <button class="admin-btn" id="admin-btn" onclick="switchPage('admin')">📦 Manager Dashboard</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="tagline-bar">
+        USE VOUCHER CODE <span class="voucher-badge">1Luvo</span> FOR 30% OFF YOUR HIGHEST ITEM!
+    </div>
+
+
+    <!-- Slide-over Cart Drawer -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>Your Shopping Cart</h3>
+            <button class="cart-close" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-body" id="cart-items-container">
+            <p style="text-align: center; color: #777; margin-top: 40px;">Your cart is currently empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="voucher-box">
+                <input type="text" id="voucher-input" placeholder="Enter voucher code">
+                <button class="btn btn-sm" onclick="applyVoucher()">Apply</button>
+            </div>
+            <div id="voucher-message" style="font-size: 0.8rem; margin-bottom: 10px;"></div>
+            
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <span id="subtotal-val">PKR 0</span>
+            </div>
+            <div class="summary-row" id="discount-row" style="display: none; color: #2e7d32;">
+                <span>Voucher Discount (30%):</span>
+                <span id="discount-val">-PKR 0</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total:</span>
+                <span id="total-val">PKR 0</span>
+            </div>
+            <button class="btn" style="width: 100%; margin-top: 15px;" onclick="checkout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkout-modal">
+        <div class="checkout-modal">
+            <div class="modal-header">
+                <h3>Shipping & Customer Details</h3>
+                <button class="cart-close" onclick="closeCheckoutModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="checkout-form" onsubmit="handleOrderSubmission(event)">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" id="cust-name" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>WhatsApp / Mobile Number *</label>
+                        <input type="tel" id="cust-phone" placeholder="0300 0000000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Gmail / Email Address *</label>
+                        <input type="email" id="cust-email" placeholder="example@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Complete Delivery Address *</label>
+                        <textarea id="cust-address" rows="3" placeholder="House/Street details, City, Province" required></textarea>
+                    </div>
+                    <div style="background: var(--tag-bg); padding: 12px; border-radius: 4px; margin-bottom: 15px;">
+                        <strong style="color: var(--primary-green);">Final Amount: </strong>
+                        <span id="modal-total-val" style="font-weight: 700;">PKR 0</span>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Place Order Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 4000;">
+      <div style="background: #fff; padding: 25px; width: 340px; margin: 80px auto; border-radius: 8px; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+        <span onclick="closeAuthModal()" style="position: absolute; right: 15px; top: 10px; cursor: pointer; font-size: 20px;">&times;</span>
+        <h3 id="modal-title" style="margin-bottom: 15px; color: var(--primary-green); font-family: var(--font-serif);">Login</h3>
+        
+        <input type="email" id="auth-email" placeholder="Email Address" style="width: 100%; padding: 10px; margin-bottom: 10px; box-sizing: border-box; border: 1px solid #CCC; border-radius: 4px;">
+        <input type="password" id="auth-password" placeholder="Password" style="width: 100%; padding: 10px; margin-bottom: 15px; box-sizing: border-box; border: 1px solid #CCC; border-radius: 4px;">
+        
+        <button onclick="submitAuth()" style="width: 100%; padding: 10px; background: var(--primary-green); color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600;">Submit</button>
+
+        <div style="display: flex; align-items: center; margin: 15px 0;">
+            <div style="flex-grow: 1; height: 1px; background: #DDD;"></div>
+            <span style="padding: 0 10px; font-size: 12px; color: #888;">OR</span>
+            <div style="flex-grow: 1; height: 1px; background: #DDD;"></div>
+        </div>
+
+        <button class="google-auth-btn" onclick="googlePromptSignIn()">
+            <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.616z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z"/></svg>
+            Sign in with Google
+        </button>
+        
+        <p style="margin-top: 15px; font-size: 13px; text-align: center;">
+          <span id="toggle-text">Need an account?</span> 
+          <a href="javascript:void(0)" onclick="toggleAuthMode()" id="toggle-link" style="color: var(--primary-green); text-decoration: underline; font-weight: 600;">Sign Up</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- HOME PAGE -->
+    <main id="home-page" class="page-view active-view">
+        <section style="padding: 90px 0; text-align: center; background: #E8F0EA;">
+            <div class="container">
+                <span style="color: var(--accent-gold); font-family: var(--font-serif); font-style: italic; font-size: 1.5rem;">Handcrafted By Kainat Abdullah</span>
+                <h1 style="font-family: var(--font-serif); font-size: 3rem; margin: 15px 0;">100% Hygienic & Homemade Organic Soaps</h1>
+                <p style="max-width: 600px; margin: 0 auto 30px;">Discover natural skin care made right at home with pure organic oils, zero chemicals, and careful sanitization in every batch.</p>
+                <button onclick="switchPage('shop')" class="btn">Explore Soap Collection</button>
+            </div>
+        </section>
+
+        <section class="container" style="padding: 60px 0;">
+            <h2 style="text-align: center; font-family: var(--font-serif); font-size: 2rem;">Featured Selections</h2>
+            <div class="grid-3">
+                
+               <!-- PRODUCT 1: Lavender Bar -->
+            <div class="product-card" style="background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1px solid #f0eee9; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <div style="width: 100%; height: 260px; overflow: hidden; border-radius: 8px; margin-bottom: 20px;">
+                        <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?auto=format&fit=crop&w=600&q=80" alt="Calming Lavender Bar" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <span style="background: #f3f6f3; color: #3d6a4e; font-size: 0.75rem; padding: 5px 14px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">Shape: Carved Flower</span>
+                        <h3 style="font-family: var(--font-serif); margin: 14px 0 6px; font-size: 1.4rem; color: #222;">Calming Lavender Bar</h3>
+                        <div style="color: #d4af37; font-size: 0.9rem; margin-bottom: 10px;">
+                            ★ ★ ★ ★ ★ <span style="color: #888; font-size: 0.85rem; font-family: sans-serif; margin-left: 4px;">(5.0)</span>
+                        </div>
+                        <p style="color: #666; font-size: 0.9rem; line-height: 1.5; margin-bottom: 16px;">Infused with pure lavender essential oils & botanical extracts for relaxing bath rituals.</p>
+                        <p style="color: #222; font-weight: 700; font-size: 1.25rem; margin-bottom: 20px;">PKR 450</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <button class="btn" onclick="addToCart('Calming Lavender Bar', 450, 'Carved Flower')" style="width: 100%; background: #4a6b5d; color: white; padding: 13px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;">ADD TO CART</button>
+                    <button type="button" onclick="toggleReviews('lavender-bar')" style="background: transparent; border: none; color: #666; font-size: 0.85rem; text-decoration: underline; cursor: pointer; padding: 4px;">View / Add Reviews</button>
+                </div>
+
+                <div id="reviews-lavender-bar" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; text-align: left;">
+                    <div id="review-list-lavender-bar"></div>
+                    <div style="margin-top: 10px;">
+                        <textarea id="review-text-lavender-bar" rows="2" placeholder="Write a review..." style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 0.85rem;"></textarea>
+                        <button onclick="submitReview('lavender-bar')" style="background: #222; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; margin-top: 5px; cursor: pointer;">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT 2: Mini Sampler Set -->
+            <div class="product-card" style="background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1px solid #f0eee9; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <div style="width: 100%; height: 260px; overflow: hidden; border-radius: 8px; margin-bottom: 20px;">
+                        <img src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?auto=format&fit=crop&w=600&q=80" alt="Luvo Mini Sampler Set" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <span style="background: #f3f6f3; color: #3d6a4e; font-size: 0.75rem; padding: 5px 14px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">Category: Mini Gift Set</span>
+                        <h3 style="font-family: var(--font-serif); margin: 14px 0 6px; font-size: 1.4rem; color: #222;">Luvo Mini Sampler Set</h3>
+                        <div style="color: #d4af37; font-size: 0.9rem; margin-bottom: 10px;">
+                            ★ ★ ★ ★ ★ <span style="color: #888; font-size: 0.85rem; font-family: sans-serif; margin-left: 4px;">(5.0)</span>
+                        </div>
+                        <p style="color: #666; font-size: 0.9rem; line-height: 1.5; margin-bottom: 16px;">Pack of 5 mini organic soaps crafted in assorted geometric and heart shapes.</p>
+                        <p style="color: #222; font-weight: 700; font-size: 1.25rem; margin-bottom: 20px;">PKR 850</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <button class="btn" onclick="addToCart('Luvo Mini Sampler Set', 850, 'Mini Box')" style="width: 100%; background: #4a6b5d; color: white; padding: 13px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;">ADD TO CART</button>
+                    <button type="button" onclick="toggleReviews('mini-sampler')" style="background: transparent; border: none; color: #666; font-size: 0.85rem; text-decoration: underline; cursor: pointer; padding: 4px;">View / Add Reviews</button>
+                </div>
+
+                <div id="reviews-mini-sampler" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; text-align: left;">
+                    <div id="review-list-mini-sampler"></div>
+                    <div style="margin-top: 10px;">
+                        <textarea id="review-text-mini-sampler" rows="2" placeholder="Write a review..." style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 0.85rem;"></textarea>
+                        <button onclick="submitReview('mini-sampler')" style="background: #222; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; margin-top: 5px; cursor: pointer;">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT 3: Detox Charcoal Soap -->
+            <div class="product-card" style="background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1px solid #f0eee9; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <div style="width: 100%; height: 260px; overflow: hidden; border-radius: 8px; margin-bottom: 20px;">
+                        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80" alt="Detox Charcoal Soap" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <span style="background: #f3f6f3; color: #3d6a4e; font-size: 0.75rem; padding: 5px 14px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">Shape: Smooth Oval</span>
+                        <h3 style="font-family: var(--font-serif); margin: 14px 0 6px; font-size: 1.4rem; color: #222;">Detox Charcoal Soap</h3>
+                        <div style="color: #d4af37; font-size: 0.9rem; margin-bottom: 10px;">
+                            ★ ★ ★ ★ ★ <span style="color: #888; font-size: 0.85rem; font-family: sans-serif; margin-left: 4px;">(5.0)</span>
+                        </div>
+                        <p style="color: #666; font-size: 0.9rem; line-height: 1.5; margin-bottom: 16px;">Activated charcoal paired with organic tea tree extracts for deep skin pore cleansing.</p>
+                        <p style="color: #222; font-weight: 700; font-size: 1.25rem; margin-bottom: 20px;">PKR 500</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <button class="btn" onclick="addToCart('Detox Charcoal Soap', 500, 'Smooth Oval')" style="width: 100%; background: #4a6b5d; color: white; padding: 13px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;">ADD TO CART</button>
+                    <button type="button" onclick="toggleReviews('charcoal-bar')" style="background: transparent; border: none; color: #666; font-size: 0.85rem; text-decoration: underline; cursor: pointer; padding: 4px;">View / Add Reviews</button>
+                </div>
+
+                <div id="reviews-charcoal-bar" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; text-align: left;">
+                    <div id="review-list-charcoal-bar"></div>
+                    <div style="margin-top: 10px;">
+                        <textarea id="review-text-charcoal-bar" rows="2" placeholder="Write a review..." style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 0.85rem;"></textarea>
+                        <button onclick="submitReview('charcoal-bar')" style="background: #222; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; margin-top: 5px; cursor: pointer;">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT 4: Herbal Leaf Soap (NEW) -->
+            <div class="product-card" style="background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1px solid #f0eee9; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <div style="width: 100%; height: 260px; overflow: hidden; border-radius: 8px; margin-bottom: 20px;">
+                        <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?auto=format&fit=crop&w=600&q=80" alt="Pure Herbal Leaf Soap" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <span style="background: #f3f6f3; color: #3d6a4e; font-size: 0.75rem; padding: 5px 14px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">Shape: Leaf Mold</span>
+                        <h3 style="font-family: var(--font-serif); margin: 14px 0 6px; font-size: 1.4rem; color: #222;">Pure Herbal Leaf Soap</h3>
+                        <div style="color: #d4af37; font-size: 0.9rem; margin-bottom: 10px;">
+                            ★ ★ ★ ★ ★ <span style="color: #888; font-size: 0.85rem; font-family: sans-serif; margin-left: 4px;">(4.9)</span>
+                        </div>
+                        <p style="color: #666; font-size: 0.9rem; line-height: 1.5; margin-bottom: 16px;">Rich neem, mint, and aloe leaf extracts combined to sooth and heal sensitive skin.</p>
+                        <p style="color: #222; font-weight: 700; font-size: 1.25rem; margin-bottom: 20px;">PKR 480</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <button class="btn" onclick="addToCart('Pure Herbal Leaf Soap', 480, 'Leaf Mold')" style="width: 100%; background: #4a6b5d; color: white; padding: 13px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;">ADD TO CART</button>
+                    <button type="button" onclick="toggleReviews('herbal-leaf')" style="background: transparent; border: none; color: #666; font-size: 0.85rem; text-decoration: underline; cursor: pointer; padding: 4px;">View / Add Reviews</button>
+                </div>
+
+                <div id="reviews-herbal-leaf" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; text-align: left;">
+                    <div id="review-list-herbal-leaf"></div>
+                    <div style="margin-top: 10px;">
+                        <textarea id="review-text-herbal-leaf" rows="2" placeholder="Write a review..." style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 0.85rem;"></textarea>
+                        <button onclick="submitReview('herbal-leaf')" style="background: #222; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; margin-top: 5px; cursor: pointer;">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT 5: Rose Petal Glow Bar (NEW) -->
+            <div class="product-card" style="background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1px solid #f0eee9; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <div style="width: 100%; height: 260px; overflow: hidden; border-radius: 8px; margin-bottom: 20px;">
+                        <img src="https://images.unsplash.com/photo-1547793549-70faf88838c8?auto=format&fit=crop&w=600&q=80" alt="Rose Petal Glow Bar" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <span style="background: #f3f6f3; color: #3d6a4e; font-size: 0.75rem; padding: 5px 14px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">Shape: Heart Shape</span>
+                        <h3 style="font-family: var(--font-serif); margin: 14px 0 6px; font-size: 1.4rem; color: #222;">Rose Petal Glow Bar</h3>
+                        <div style="color: #d4af37; font-size: 0.9rem; margin-bottom: 10px;">
+                            ★ ★ ★ ★ ★ <span style="color: #888; font-size: 0.85rem; font-family: sans-serif; margin-left: 4px;">(5.0)</span>
+                        </div>
+                        <p style="color: #666; font-size: 0.9rem; line-height: 1.5; margin-bottom: 16px;">Organic wild rose water and pink clay designed for natural skin radiance and hydration.</p>
+                        <p style="color: #222; font-weight: 700; font-size: 1.25rem; margin-bottom: 20px;">PKR 520</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <button class="btn" onclick="addToCart('Rose Petal Glow Bar', 520, 'Heart Shape')" style="width: 100%; background: #4a6b5d; color: white; padding: 13px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;">ADD TO CART</button>
+                    <button type="button" onclick="toggleReviews('rose-glow')" style="background: transparent; border: none; color: #666; font-size: 0.85rem; text-decoration: underline; cursor: pointer; padding: 4px;">View / Add Reviews</button>
+                </div>
+
+                <div id="reviews-rose-glow" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; text-align: left;">
+                    <div id="review-list-rose-glow"></div>
+                    <div style="margin-top: 10px;">
+                        <textarea id="review-text-rose-glow" rows="2" placeholder="Write a review..." style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 0.85rem;"></textarea>
+                        <button onclick="submitReview('rose-glow')" style="background: #222; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; margin-top: 5px; cursor: pointer;">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT 6: Honey & Oatmeal Scrub (NEW) -->
+            <div class="product-card" style="background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1px solid #f0eee9; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <div style="width: 100%; height: 260px; overflow: hidden; border-radius: 8px; margin-bottom: 20px;">
+                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=600&q=80" alt="Honey & Oatmeal Scrub" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <span style="background: #f3f6f3; color: #3d6a4e; font-size: 0.75rem; padding: 5px 14px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">Shape: Rectangular Bar</span>
+                        <h3 style="font-family: var(--font-serif); margin: 14px 0 6px; font-size: 1.4rem; color: #222;">Honey & Oatmeal Scrub</h3>
+                        <div style="color: #d4af37; font-size: 0.9rem; margin-bottom: 10px;">
+                            ★ ★ ★ ★ ★ <span style="color: #888; font-size: 0.85rem; font-family: sans-serif; margin-left: 4px;">(4.8)</span>
+                        </div>
+                        <p style="color: #666; font-size: 0.9rem; line-height: 1.5; margin-bottom: 16px;">Gently exfoliates dead skin using crushed oats and pure raw organic honey.</p>
+                        <p style="color: #222; font-weight: 700; font-size: 1.25rem; margin-bottom: 20px;">PKR 470</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <button class="btn" onclick="addToCart('Honey & Oatmeal Scrub', 470, 'Rectangular Bar')" style="width: 100%; background: #4a6b5d; color: white; padding: 13px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;">ADD TO CART</button>
+                    <button type="button" onclick="toggleReviews('honey-oatmeal')" style="background: transparent; border: none; color: #666; font-size: 0.85rem; text-decoration: underline; cursor: pointer; padding: 4px;">View / Add Reviews</button>
+                </div>
+
+                <div id="reviews-honey-oatmeal" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; text-align: left;">
+                    <div id="review-list-honey-oatmeal"></div>
+                    <div style="margin-top: 10px;">
+                        <textarea id="review-text-honey-oatmeal" rows="2" placeholder="Write a review..." style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 0.85rem;"></textarea>
+                        <button onclick="submitReview('honey-oatmeal')" style="background: #222; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; margin-top: 5px; cursor: pointer;">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+    <!-- ABOUT PAGE -->
+ <main id="about-page" class="page-view">
+        <div class="page-header">
+            <h1>Our Brand Story ✨</h1>
+            <p style="color: var(--accent-gold); font-style: italic; font-family: var(--font-serif);">Crafted with Love By Kainat Abdullah 🌿</p>
+        </div>
+        <section class="container" style="padding: 60px 0; max-width: 800px; text-align: center;">
+            <h2 style="font-family: var(--font-serif); margin-bottom: 20px;">Homemade, Pure, and 100% Hygienic 🧼</h2>
+            <p style="margin-bottom: 20px; line-height: 1.8;">
+                <strong>Luvo Organic</strong> was born out of a simple, uncompromising belief: skincare should be pure, intentional, and deeply nourishing 🍃. Every single soap bar is lovingly <strong>made at home in small batches</strong> by Kainat Abdullah to ensure complete purity and warmth in every product 🌸.
+            </p>
+            <p style="margin-bottom: 30px; line-height: 1.8;">
+                In a world full of harsh chemical additives and synthetic formulas, we offer an authentic, natural alternative 🌿. We carefully blend botanical ingredients, rich essential oils, and raw elements that respect your skin's natural balance ✨.
+            </p>
+
+            <div style="background-color: rgba(212, 175, 55, 0.08); border-left: 4px solid var(--accent-gold); padding: 25px; margin: 35px 0; border-radius: 8px; text-align: left;">
+                <h3 style="margin-top: 0; font-family: var(--font-serif); margin-bottom: 15px;">Why Luvo Organic? 💚</h3>
+                <ul style="padding-left: 20px; margin-bottom: 0; line-height: 1.8; list-style-type: none;">
+                    <li style="margin-bottom: 10px;">✨ <strong>100% Handcrafted:</strong> Prepared with care in hygienic batches for fresh, organic potency.</li>
+                    <li style="margin-bottom: 10px;">🌱 <strong>Sustainably Sourced:</strong> Ethical botanicals that are gentle on your skin and kind to nature.</li>
+                    <li>🚫 <strong>Zero Compromises:</strong> Totally free from harsh sulfates, artificial fillers, and toxic chemicals.</li>
+                </ul>
+            </div>
+
+            <p style="font-family: var(--font-serif); font-size: 1.1rem; color: var(--accent-gold); margin-top: 30px; font-style: italic;">
+                Thank you for letting us be a part of your daily natural skincare ritual! 💛
+            </p>
+        </section>
+    </main>
+<!-- CONTACT PAGE -->
+    <main id="contact-page" class="page-view">
+        <div class="page-header">
+            <h1>Contact Us 📩</h1>
+            <p>Have questions about bulk orders or custom shapes? Send us a message.</p>
+        </div>
+        <section class="container" style="padding: 40px 0 60px; max-width: 600px;">
+            
+            <!-- Contact Info Box -->
+            <div style="background-color: rgba(212, 175, 55, 0.08); border-left: 4px solid var(--accent-gold); padding: 20px; border-radius: 8px; margin-bottom: 35px; text-align: left; line-height: 1.8;">
+                <p style="margin: 0 0 8px 0; font-size: 0.95rem;">
+                    <strong>📧 Email Us:</strong> 
+                    <a href="mailto:luvoorganics@gmail.com" style="color: var(--accent-gold); text-decoration: none; font-weight: 600;">luvoorganics@gmail.com</a>
+                </p>
+                <p style="margin: 0 0 8px 0; font-size: 0.95rem;"><strong>👤 Founder:</strong> Kainat Abdullah</p>
+               
+            </div>
+
+            <!-- Contact Form -->
+            <form onsubmit="handleContactSubmission(event)">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="contact-name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label>WhatsApp / Phone Number</label>
+                    <input type="tel" id="contact-phone" placeholder="0300 0000000" required>
+                </div>
+                <div class="form-group">
+                    <label>Message / Special Request</label>
+                    <textarea id="contact-msg" rows="4" placeholder="Inquire about custom bulk shapes..." required></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- SUCCESS PAGE -->
+    <main id="success-page" class="page-view">
+        <section class="container" style="padding: 60px 0;">
+            <div class="greeting-card" style="background: white; border-radius: 12px; padding: 40px 30px; border: 1px solid #EAEAEA; max-width: 650px; margin: 0 auto; text-align: center;">
+                <div style="font-size: 3rem; margin-bottom: 10px;">🌿✨</div>
+                <h1 style="font-family: var(--font-serif); color: var(--primary-green); font-size: 2.2rem; margin-bottom: 10px;">Thank You For Your Order!</h1>
+                <div class="order-number-badge" id="display-order-number" style="display: inline-block; background: var(--primary-green); color: white; padding: 8px 20px; border-radius: 30px; font-size: 1.1rem; font-weight: 700; margin: 15px 0;">ORDER #LV-1001</div>
+                <div class="order-details-box" style="background: var(--bg-cream); border: 1px dashed var(--accent-gold); padding: 20px; border-radius: 8px; text-align: left; margin: 25px 0;">
+                    <p><strong>Customer Name:</strong> <span id="summary-name">-</span></p>
+                    <p><strong>Phone:</strong> <span id="summary-phone">-</span></p>
+                    <p><strong>Address:</strong> <span id="summary-address">-</span></p>
+                    <p><strong>Items:</strong> <span id="summary-items">-</span></p>
+                    <p style="font-size: 1.1rem; color: var(--primary-green);"><strong>Total:</strong> <span id="summary-total" style="font-weight: 700;">PKR 0</span></p>
+                </div>
+                <button onclick="switchPage('home')" class="btn">Return To Home</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- ADMIN DASHBOARD -->
+    <main id="admin-page" class="page-view">
+        <div class="page-header">
+            <h1>Store Manager Dashboard</h1>
+            <p>Live Record of Buyer Orders & Registered Users</p>
+        </div>
+        <section class="container" style="padding: 40px 0;">
+            <h2>All Store Orders (<span id="admin-order-count">0</span>)</h2>
+            <div id="admin-orders-container"></div>
+
+            <h2 style="margin-top: 40px;">Registered User Profiles (<span id="admin-user-count">0</span>)</h2>
+            <div id="admin-users-container"></div>
+        </section>
+    </main>
+
+<footer style="background-color: #222; color: #fff; padding: 25px 20px;">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap;">
+        
+        <!-- Brand Logo (Left side par, bilkul pass) -->
+        <img src="https://i.ibb.co/7JSbXPkB/Screenshot-2026-08-06-181034-removebg-preview.png" alt="Luvo Organic Logo" style="height: 80px; width: auto; object-fit: contain;">
+
+        <!-- Text Section (Center-aligned right next to logo) -->
+        <div style="text-align: left; display: flex; flex-direction: column; gap: 6px;">
+            <!-- Email Link -->
+            <p style="margin: 0; font-size: 15px; font-family: sans-serif;">
+                📩 Contact: <a href="mailto:luvoorganics@gmail.com" style="color: #d4af37; text-decoration: none; font-weight: 600;">luvoorganics@gmail.com</a>
+            </p>
+
+            <!-- Copyright Line -->
+            <p style="margin: 0; font-size: 13px; font-family: sans-serif; color: #aaa;">
+                &copy; 2026 Luvo Organic By Kainat Abdullah. All rights reserved.
+            </p>
+        </div>
+
+    </div>
+</footer>
+    <!-- Complete JavaScript Core Engine -->
+    <script>
+    // 1. Global Variables & App State
+let cart = [];
+let isVoucherApplied = false;
+let finalOrderTotal = 0;
+let isSignUpMode = false;
+let currentRatings = {};
+
+// 2. DOM Initialization
+window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('admin') === 'true') {
+        localStorage.setItem('luvo_admin_access', 'enabled');
+    }
+    if (localStorage.getItem('luvo_admin_access') === 'enabled') {
+        const adminBtn = document.getElementById('admin-btn');
+        if (adminBtn) adminBtn.style.display = 'inline-block';
+    }
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
+        const authBtn = document.getElementById('open-auth-btn');
+        if (authBtn) authBtn.innerText = "Logged in as " + currentUser.split("@")[0];
+    }
+    
+    // Load reviews safely
+    loadReviews('lavender-bar');
+    loadReviews('mini-sampler');
+    loadReviews('charcoal-bar');
+});
+
+if (!localStorage.getItem('luvo_last_order_id')) {
+    localStorage.setItem('luvo_last_order_id', '1000');
+}
+
+// 3. Navigation & Modal Handlers
+function switchPage(pageId) {
+    document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active-view'));
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+
+    const pageEl = document.getElementById(pageId + '-page');
+    if (pageEl) pageEl.classList.add('active-view');
+    
+    const navLink = document.getElementById('nav-' + pageId);
+    if (navLink) navLink.classList.add('active');
+
+    if (pageId === 'admin') {
+        renderAdminOrders();
+        renderAdminUsers();
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleCart() {
+    const drawer = document.getElementById('cart-drawer');
+    const overlay = document.getElementById('cart-overlay');
+    if (drawer) drawer.classList.toggle('active');
+    if (overlay) overlay.classList.toggle('active');
+}
+
+function openCheckoutModal() {
+    const modal = document.getElementById('checkout-modal');
+    if (modal) modal.classList.add('active');
+    const totalVal = document.getElementById('modal-total-val');
+    if (totalVal) totalVal.innerText = `PKR ${finalOrderTotal}`;
+}
+
+function closeCheckoutModal() {
+    const modal = document.getElementById('checkout-modal');
+    if (modal) modal.classList.remove('active');
+}
+
+function openAuthModal() { 
+    const authModal = document.getElementById("auth-modal");
+    if (authModal) authModal.style.display = "block"; 
+}
+
+function closeAuthModal() { 
+    const authModal = document.getElementById("auth-modal");
+    if (authModal) authModal.style.display = "none"; 
+}
+
+function toggleAuthMode() {
+    isSignUpMode = !isSignUpMode;
+    const title = document.getElementById("modal-title");
+    const toggleText = document.getElementById("toggle-text");
+    const toggleLink = document.getElementById("toggle-link");
+
+    if (title) title.innerText = isSignUpMode ? "Create Account" : "Login";
+    if (toggleText) toggleText.innerText = isSignUpMode ? "Already have an account?" : "Need an account?";
+    if (toggleLink) toggleLink.innerText = isSignUpMode ? "Login" : "Sign Up";
+}
+
+// 4. Auth Submissions
+function submitAuth() {
+    const emailEl = document.getElementById("auth-email");
+    const passEl = document.getElementById("auth-password");
+    if (!emailEl || !passEl) return;
+
+    const email = emailEl.value.trim();
+    const password = passEl.value.trim();
+
+    if (!email || !password) return alert("Please fill in all fields.");
+
+    if (isSignUpMode) {
+        localStorage.setItem("user_" + email, JSON.stringify({ password: password, usedVoucher: false, type: "Standard" }));
+        localStorage.setItem("currentUser", email);
+        alert("Account created successfully!");
+    } else {
+        const savedUser = localStorage.getItem("user_" + email);
+        if (!savedUser) return alert("No account found with this email.");
+        localStorage.setItem("currentUser", email);
+        alert("Logged in successfully!");
+    }
+
+    const authBtn = document.getElementById("open-auth-btn");
+    if (authBtn) authBtn.innerText = "Logged in as " + email.split("@")[0];
+    closeAuthModal();
+}
+
+function googlePromptSignIn() {
+    const emailEl = document.getElementById("auth-email");
+    let emailInput = emailEl ? emailEl.value.trim() : "";
+    
+    if (!emailInput || !emailInput.includes("@")) {
+        showToast("Please enter a valid email in the box above first.", "error");
+        return;
+    }
+    localStorage.setItem("user_" + emailInput, JSON.stringify({ password: "Google Account", usedVoucher: false, type: "Google OAuth" }));
+    localStorage.setItem("currentUser", emailInput);
+    
+    const authBtn = document.getElementById("open-auth-btn");
+    if (authBtn) authBtn.innerText = "Logged in as " + emailInput.split("@")[0];
+    
+    showToast("Signed in successfully via Google!");
+    closeAuthModal();
+}
+
+// 5. Toast System
+function showToast(message, type = 'success') {
+    let toast = document.getElementById('custom-toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'custom-toast';
+        toast.style.cssText = `
+            position: fixed; bottom: 25px; right: 25px; z-index: 9999;
+            padding: 12px 20px; border-radius: 6px; color: white;
+            font-weight: 600; font-family: sans-serif; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: all 0.3s ease; opacity: 0; transform: translateY(20px);
+        `;
+        document.body.appendChild(toast);
+    }
+    toast.style.background = type === 'error' ? '#d32f2f' : '#2e7d32';
+    toast.innerText = message;
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateY(0)';
+    
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(20px)';
+    }, 3000);
+}
+
+// 6. Cart & Item Logic
+function addToCart(title, price, shape) {
+    const existingIndex = cart.findIndex(item => item.title === title && item.shape === shape);
+    if (existingIndex > -1) {
+        cart[existingIndex].qty += 1;
+    } else {
+        cart.push({ title, price, shape, qty: 1 });
+    }
+    updateCartUI();
+    toggleCart();
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    if (cart.length === 0) {
+        isVoucherApplied = false;
+    }
+    updateCartUI();
+    showToast("Item removed from cart", "error");
+}
+
+function updateCartUI() {
+    const container = document.getElementById('cart-items-container');
+    let totalCount = 0;
+    let subtotal = 0;
+
+    if (!container) return;
+
+    if (cart.length === 0) {
+        container.innerHTML = '<p style="text-align: center; color: #777; margin-top: 40px;">Your cart is currently empty.</p>';
+    } else {
+        container.innerHTML = '';
+        cart.forEach((item, index) => {
+            totalCount += item.qty;
+            subtotal += (item.price * item.qty);
+            const itemEl = document.createElement('div');
+            itemEl.className = 'cart-item';
+            itemEl.style.cssText = 'display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;';
+            itemEl.innerHTML = `
+                <div>
+                    <div class="cart-item-title" style="font-weight:600;">${item.title}</div>
+                    <div class="cart-item-meta" style="font-size:0.85rem; color:#666;">${item.shape} | Qty: ${item.qty}</div>
+                </div>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <strong>PKR ${item.price * item.qty}</strong>
+                    <button type="button" onclick="removeFromCart(${index})" style="background:#ffebee; color:#c62828; border:1px solid #ffcdd2; padding:2px 6px; border-radius:4px; cursor:pointer; font-size:11px;">Remove</button>
+                </div>
+            `;
+            container.appendChild(itemEl);
+        });
+    }
+
+    const countEl = document.getElementById('cart-count');
+    const subtotalEl = document.getElementById('subtotal-val');
+    if (countEl) countEl.innerText = totalCount;
+    if (subtotalEl) subtotalEl.innerText = `PKR ${subtotal}`;
+
+    let discount = 0;
+    const discRow = document.getElementById('discount-row');
+    const discVal = document.getElementById('discount-val');
+
+    if (isVoucherApplied && cart.length > 0) {
+        let highestPrice = Math.max(...cart.map(i => i.price));
+        discount = Math.round(highestPrice * 0.30);
+        if (discRow) discRow.style.display = 'flex';
+        if (discVal) discVal.innerText = `-PKR ${discount}`;
+    } else {
+        if (discRow) discRow.style.display = 'none';
+    }
+
+    finalOrderTotal = Math.max(0, subtotal - discount);
+    const totalEl = document.getElementById('total-val');
+    if (totalEl) totalEl.innerText = `PKR ${finalOrderTotal}`;
+}
+
+// 7. Voucher System
+function applyVoucher() {
+    const inputEl = document.getElementById('voucher-input');
+    if (!inputEl) return;
+    const val = inputEl.value.trim();
+    const currentUser = localStorage.getItem('currentUser') || 'guest';
+    const usedVouchers = JSON.parse(localStorage.getItem('luvo_used_vouchers')) || [];
+
+    if (val === '1Luvo') {
+        if (usedVouchers.includes(currentUser + '_1Luvo')) {
+            showToast('You have already used code 1Luvo!', 'error');
+            return;
+        }
+        if (isVoucherApplied) {
+            showToast('Voucher is already applied to this order.', 'error');
+            return;
+        }
+        if (cart.length === 0) {
+            showToast('Please add items to cart first.', 'error');
+            return;
+        }
+        isVoucherApplied = true;
+        showToast('Voucher 1Luvo applied successfully! (30% Off)');
+        updateCartUI();
+    } else {
+        showToast('Invalid voucher code.', 'error');
+    }
+}
+
+// 8. Order & Checkout Processing
+function checkout() {
+    if (cart.length === 0) return alert('Your cart is empty!');
+    toggleCart();
+    openCheckoutModal();
+}
+
+function handleOrderSubmission(e) {
+    e.preventDefault();
+    let nextId = parseInt(localStorage.getItem('luvo_last_order_id')) + 1;
+    localStorage.setItem('luvo_last_order_id', nextId.toString());
+
+    let orders = JSON.parse(localStorage.getItem('luvo_orders_db')) || [];
+    let orderData = {
+        id: `LV-${nextId}`,
+        name: document.getElementById('cust-name').value.trim(),
+        phone: document.getElementById('cust-phone').value.trim(),
+        address: document.getElementById('cust-address').value.trim(),
+        items: cart.map(i => `${i.title} x${i.qty}`).join(', '),
+        total: finalOrderTotal
+    };
+    orders.unshift(orderData);
+    localStorage.setItem('luvo_orders_db', JSON.stringify(orders));
+
+    if (isVoucherApplied) {
+        const currentUser = localStorage.getItem('currentUser') || 'guest';
+        let usedVouchers = JSON.parse(localStorage.getItem('luvo_used_vouchers')) || [];
+        usedVouchers.push(currentUser + '_1Luvo');
+        localStorage.setItem('luvo_used_vouchers', JSON.stringify(usedVouchers));
+    }
+
+    document.getElementById('display-order-number').innerText = `ORDER #${orderData.id}`;
+    document.getElementById('summary-name').innerText = orderData.name;
+    document.getElementById('summary-phone').innerText = orderData.phone;
+    document.getElementById('summary-address').innerText = orderData.address;
+    document.getElementById('summary-items').innerText = orderData.items;
+    document.getElementById('summary-total').innerText = `PKR ${orderData.total}`;
+
+    cart = [];
+    isVoucherApplied = false;
+    closeCheckoutModal();
+    switchPage('success');
+}
+
+// 9. Review System
+function toggleReviews(productId) {
+    const sec = document.getElementById(`reviews-${productId}`);
+    if (sec) sec.style.display = sec.style.display === 'none' ? 'block' : 'none';
+}
+
+function setRating(productId, rating) {
+    currentRatings[productId] = rating;
+    const spans = document.querySelectorAll(`#star-input-${productId} span`);
+    spans.forEach((s, idx) => {
+        if (idx < rating) s.classList.add('selected');
+        else s.classList.remove('selected');
+    });
+}
+
+function submitReview(productId) {
+    const rating = currentRatings[productId] || 5;
+    const textEl = document.getElementById(`review-text-${productId}`);
+    const fileInput = document.getElementById(`review-file-${productId}`);
+    
+    if (!textEl || !textEl.value.trim()) return alert("Please enter a review comment.");
+    const text = textEl.value.trim();
+
+    const processReview = (photoDataUrl = '') => {
+        let reviews = JSON.parse(localStorage.getItem(`reviews_${productId}`)) || [];
+        reviews.push({ rating, text, photo: photoDataUrl, date: new Date().toLocaleDateString() });
+        localStorage.setItem(`reviews_${productId}`, JSON.stringify(reviews));
+        textEl.value = '';
+        loadReviews(productId);
+        alert("Review submitted!");
+    };
+
+    if (fileInput && fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = (e) => processReview(e.target.result);
+        reader.readAsDataURL(fileInput.files[0]);
+    } else {
+        processReview();
+    }
+}
+
+function loadReviews(productId) {
+    const container = document.getElementById(`review-list-${productId}`);
+    if (!container) return;
+    let reviews = JSON.parse(localStorage.getItem(`reviews_${productId}`)) || [];
+    
+    if (reviews.length === 0) {
+        container.innerHTML = '<p style="color:#888;">No reviews yet. Be the first!</p>';
+        return;
+    }
+
+    container.innerHTML = reviews.map(r => `
+        <div class="review-item">
+            <div style="color:var(--accent-gold, #d4af37);">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</div>
+            <div>${r.text}</div>
+            ${r.photo ? `<img src="${r.photo}" class="review-photo" style="max-width:100px; margin-top:5px;">` : ''}
+            <div style="font-size:0.75rem; color:#888;">${r.date}</div>
+        </div>
+    `).join('');
+}
+
+// 10. Contact Form Submission
+function handleContactSubmission(e) {
+    e.preventDefault();
+    alert("Thank you! Your message has been sent to Kainat Abdullah.");
+    if (document.getElementById('contact-name')) document.getElementById('contact-name').value = '';
+    if (document.getElementById('contact-phone')) document.getElementById('contact-phone').value = '';
+    if (document.getElementById('contact-msg')) document.getElementById('contact-msg').value = '';
+}
+
+// 11. Admin Panel Functions
+function renderAdminOrders() {
+    const orders = JSON.parse(localStorage.getItem('luvo_orders_db')) || [];
+    const countEl = document.getElementById('admin-order-count');
+    if (countEl) countEl.innerText = orders.length;
+    
+    const container = document.getElementById('admin-orders-container');
+    if (!container) return;
+
+    if (orders.length === 0) {
+        container.innerHTML = '<p>No orders placed yet.</p>';
+        return;
+    }
+    container.innerHTML = `<table class="admin-table"><thead><tr><th>ID</th><th>Name</th><th>Phone</th><th>Total</th></tr></thead><tbody>${orders.map(o=>`<tr><td>#${o.id}</td><td>${o.name}</td><td>${o.phone}</td><td>PKR ${o.total}</td></tr>`).join('')}</tbody></table>`;
+}
+
+function renderAdminUsers() {
+    const container = document.getElementById('admin-users-container');
+    let users = [];
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        if (key.startsWith('user_')) {
+            users.push({ email: key.replace('user_', ''), ...JSON.parse(localStorage.getItem(key)) });
+        }
+    }
+    const countEl = document.getElementById('admin-user-count');
+    if (countEl) countEl.innerText = users.length;
+    
+    if (!container) return;
+
+    if (users.length === 0) {
+        container.innerHTML = '<p>No users registered yet.</p>';
+        return;
+    }
+    container.innerHTML = `<table class="admin-table"><thead><tr><th>Email</th><th>Type</th></tr></thead><tbody>${users.map(u=>`<tr><td>${u.email}</td><td>${u.type}</td></tr>`).join('')}</tbody></table>`;
+}
+    </script>
+</body>
+</html>
+
