@@ -293,43 +293,162 @@
     </div>
 
     <!-- HOME PAGE -->
-    <main id="home-page" class="page-view active-view">
-        <section style="padding: 90px 0; text-align: center; background: #E8F0EA;">
-            <div class="container">
-                <span style="color: var(--accent-gold); font-family: var(--font-serif); font-style: italic; font-size: 1.5rem;">Handcrafted By Kainat Abdullah</span>
-                <h1 style="font-family: var(--font-serif); font-size: 3rem; margin: 15px 0;">100% Hygienic & Homemade Organic Soaps</h1>
-                <p style="max-width: 600px; margin: 0 auto 30px;">Discover natural skin care made right at home with pure organic oils, zero chemicals, and careful sanitization in every batch.</p>
-                <button onclick="switchPage('shop')" class="btn">Explore Soap Collection</button>
-            </div>
-        </section>
+<main id="home-page" class="page-view active-view">
+    <section style="padding: 90px 0; text-align: center; background: #E8F0EA;">
+        <div class="container">
+            <span style="color: var(--accent-gold); font-family: var(--font-serif); font-style: italic; font-size: 1.5rem;">Handcrafted By Kainat Abdullah</span>
+            <h1 style="font-family: var(--font-serif); font-size: 3rem; margin: 15px 0;">100% Hygienic &amp; Homemade Organic Soaps</h1>
+            <p style="max-width: 600px; margin: 0 auto 30px;">Discover natural skin care made right at home with pure organic oils, zero chemicals, and careful sanitization in every batch.</p>
+            <button onclick="switchPage('shop')" class="btn">Explore Soap Collection</button>
+        </div>
+    </section>
 
-        <section class="container" style="padding: 60px 0;">
-            <h2 style="text-align: center; font-family: var(--font-serif); font-size: 2rem;">Featured Selections</h2>
-            <div class="grid-3">
-                
-               <!-- PRODUCT 1: Lavender Bar -->
-            <div class="product-card" style="background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1px solid #f0eee9; display: flex; flex-direction: column; justify-content: space-between;">
+    <section class="container" style="padding: 60px 0;">
+        <h2 style="text-align: center; font-family: var(--font-serif); font-size: 2rem;">Featured Selections</h2>
+        <div class="grid-3">
+            
+            <!-- Product 1 -->
+            <article class="product-card" data-product-id="lavender-bar">
+                <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?auto=format&fit=crop&w=600&q=80" alt="Calming Lavender Bar">
+                <div class="product-info">
+                    <div>
+                        <span class="product-badge">Shape: Carved Flower</span>
+                        <h3 style="font-family: var(--font-serif);">Calming Lavender Bar</h3>
+                        <div class="star-rating" id="stars-lavender-bar">★★★★★ (5.0)</div>
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">Pure lavender oils with relaxing botanical scents.</p>
+                    </div>
+                    <div>
+                        <div class="price-tag">PKR 450</div>
+                        <button class="btn btn-sm" onclick="addToCart('Calming Lavender Bar', 450, 'Carved Flower')">Add To Cart</button>
+                        <br>
+                        <button class="toggle-review-btn" onclick="toggleReviews('lavender-bar')">View / Add Reviews</button>
+                    </div>
+                </div>
+                <div class="review-section" id="reviews-lavender-bar" style="display: none;">
+                    <h4>Customer Reviews</h4>
+                    <div id="review-list-lavender-bar"></div>
+                    <div style="margin-top: 10px;">
+                        <strong>Leave a Review:</strong>
+                        <div class="star-select" id="star-input-lavender-bar">
+                            <span onclick="setRating('lavender-bar', 1)">★</span>
+                            <span onclick="setRating('lavender-bar', 2)">★</span>
+                            <span onclick="setRating('lavender-bar', 3)">★</span>
+                            <span onclick="setRating('lavender-bar', 4)">★</span>
+                            <span onclick="setRating('lavender-bar', 5)">★</span>
+                        </div>
+                        <textarea id="review-text-lavender-bar" rows="2" placeholder="Write your review here..." style="width:100%; border:1px solid #ccc; border-radius:4px; padding:5px; font-size:0.8rem;"></textarea>
+                        <input type="file" id="review-file-lavender-bar" accept="image/*" style="margin-top: 5px; font-size:0.75rem;">
+                        <button class="btn btn-sm" style="margin-top: 5px;" onclick="submitReview('lavender-bar')">Submit</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product 2 -->
+            <article class="product-card" data-product-id="mini-sampler">
+                <img src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?auto=format&fit=crop&w=600&q=80" alt="Luvo Mini Sampler Set">
+                <div class="product-info">
+                    <div>
+                        <span class="product-badge">Category: Mini Gift Box</span>
+                        <h3 style="font-family: var(--font-serif);">Luvo Mini Sampler Set</h3>
+                        <div class="star-rating" id="stars-mini-sampler">★★★★★ (5.0)</div>
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">Pack of 5 mini soaps in assorted geometric and heart shapes.</p>
+                    </div>
+                    <div>
+                        <div class="price-tag">PKR 850</div>
+                        <button class="btn btn-sm" onclick="addToCart('Luvo Mini Sampler Set', 850, 'Pack of 5 Minis')">Add To Cart</button>
+                        <br>
+                        <button class="toggle-review-btn" onclick="toggleReviews('mini-sampler')">View / Add Reviews</button>
+                    </div>
+                </div>
+                <div class="review-section" id="reviews-mini-sampler" style="display: none;">
+                    <h4>Customer Reviews</h4>
+                    <div id="review-list-mini-sampler"></div>
+                    <div style="margin-top: 10px;">
+                        <strong>Leave a Review:</strong>
+                        <div class="star-select" id="star-input-mini-sampler">
+                            <span onclick="setRating('mini-sampler', 1)">★</span>
+                            <span onclick="setRating('mini-sampler', 2)">★</span>
+                            <span onclick="setRating('mini-sampler', 3)">★</span>
+                            <span onclick="setRating('mini-sampler', 4)">★</span>
+                            <span onclick="setRating('mini-sampler', 5)">★</span>
+                        </div>
+                        <textarea id="review-text-mini-sampler" rows="2" placeholder="Write your review here..." style="width:100%; border:1px solid #ccc; border-radius:4px; padding:5px; font-size:0.8rem;"></textarea>
+                        <input type="file" id="review-file-mini-sampler" accept="image/*" style="margin-top: 5px; font-size:0.75rem;">
+                        <button class="btn btn-sm" style="margin-top: 5px;" onclick="submitReview('mini-sampler')">Submit</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product 3 -->
+            <article class="product-card" data-product-id="charcoal-bar">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80" alt="Detox Charcoal Soap">
+                <div class="product-info">
+                    <div>
+                        <span class="product-badge">Shape: Smooth Oval</span>
+                        <h3 style="font-family: var(--font-serif);">Detox Charcoal Soap</h3>
+                        <div class="star-rating" id="stars-charcoal-bar">★★★★★ (5.0)</div>
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">Activated charcoal with tea tree oil for deep pore cleansing.</p>
+                    </div>
+                    <div>
+                        <div class="price-tag">PKR 500</div>
+                        <button class="btn btn-sm" onclick="addToCart('Detox Charcoal Soap', 500, 'Smooth Oval')">Add To Cart</button>
+                        <br>
+                        <button class="toggle-review-btn" onclick="toggleReviews('charcoal-bar')">View / Add Reviews</button>
+                    </div>
+                </div>
+                <div class="review-section" id="reviews-charcoal-bar" style="display: none;">
+                    <h4>Customer Reviews</h4>
+                    <div id="review-list-charcoal-bar"></div>
+                    <div style="margin-top: 10px;">
+                        <strong>Leave a Review:</strong>
+                        <div class="star-select" id="star-input-charcoal-bar">
+                            <span onclick="setRating('charcoal-bar', 1)">★</span>
+                            <span onclick="setRating('charcoal-bar', 2)">★</span>
+                            <span onclick="setRating('charcoal-bar', 3)">★</span>
+                            <span onclick="setRating('charcoal-bar', 4)">★</span>
+                            <span onclick="setRating('charcoal-bar', 5)">★</span>
+                        </div>
+                        <textarea id="review-text-charcoal-bar" rows="2" placeholder="Write your review here..." style="width:100%; border:1px solid #ccc; border-radius:4px; padding:5px; font-size:0.8rem;"></textarea>
+                        <input type="file" id="review-file-charcoal-bar" accept="image/*" style="margin-top: 5px; font-size:0.75rem;">
+                        <button class="btn btn-sm" style="margin-top: 5px;" onclick="submitReview('charcoal-bar')">Submit</button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+</main>
+
+<!-- SHOP SOAPS PAGE -->
+<main id="shop-page" class="page-view">
+    <div class="page-header" style="text-align: center; padding: 50px 20px 20px;">
+        <h1 style="font-family: var(--font-serif); font-size: 2.6rem; color: #1a1a1a; letter-spacing: 0.5px; margin-bottom: 8px;">Handcrafted Artisanal Soaps</h1>
+        <p style="color: #666; font-size: 1rem; font-style: italic; font-family: var(--font-serif);">Pure Organic Botanical Care By Kainat Abdullah</p>
+    </div>
+
+    <section class="container" style="padding: 30px 20px 80px; max-width: 1200px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px;">
+            
+            <!-- PRODUCT 1 -->
+            <article class="product-card" style="background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1px solid #f0eee9; display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
                     <div style="width: 100%; height: 260px; overflow: hidden; border-radius: 8px; margin-bottom: 20px;">
                         <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?auto=format&fit=crop&w=600&q=80" alt="Calming Lavender Bar" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    
                     <div style="text-align: center;">
                         <span style="background: #f3f6f3; color: #3d6a4e; font-size: 0.75rem; padding: 5px 14px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">Shape: Carved Flower</span>
                         <h3 style="font-family: var(--font-serif); margin: 14px 0 6px; font-size: 1.4rem; color: #222;">Calming Lavender Bar</h3>
                         <div style="color: #d4af37; font-size: 0.9rem; margin-bottom: 10px;">
                             ★ ★ ★ ★ ★ <span style="color: #888; font-size: 0.85rem; font-family: sans-serif; margin-left: 4px;">(5.0)</span>
                         </div>
-                        <p style="color: #666; font-size: 0.9rem; line-height: 1.5; margin-bottom: 16px;">Infused with pure lavender essential oils & botanical extracts for relaxing bath rituals.</p>
+                        <p style="color: #666; font-size: 0.9rem; line-height: 1.5; margin-bottom: 16px;">Infused with pure lavender essential oils &amp; botanical extracts for relaxing bath rituals.</p>
                         <p style="color: #222; font-weight: 700; font-size: 1.25rem; margin-bottom: 20px;">PKR 450</p>
                     </div>
                 </div>
-
                 <div style="display: flex; flex-direction: column; gap: 10px;">
                     <button class="btn" onclick="addToCart('Calming Lavender Bar', 450, 'Carved Flower')" style="width: 100%; background: #4a6b5d; color: white; padding: 13px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;">ADD TO CART</button>
                     <button type="button" onclick="toggleReviews('lavender-bar')" style="background: transparent; border: none; color: #666; font-size: 0.85rem; text-decoration: underline; cursor: pointer; padding: 4px;">View / Add Reviews</button>
                 </div>
-
                 <div id="reviews-lavender-bar" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; text-align: left;">
                     <div id="review-list-lavender-bar"></div>
                     <div style="margin-top: 10px;">
@@ -337,15 +456,14 @@
                         <button onclick="submitReview('lavender-bar')" style="background: #222; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; margin-top: 5px; cursor: pointer;">Submit</button>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <!-- PRODUCT 2: Mini Sampler Set -->
-            <div class="product-card" style="background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1px solid #f0eee9; display: flex; flex-direction: column; justify-content: space-between;">
+            <!-- PRODUCT 2 -->
+            <article class="product-card" style="background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1px solid #f0eee9; display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
                     <div style="width: 100%; height: 260px; overflow: hidden; border-radius: 8px; margin-bottom: 20px;">
                         <img src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?auto=format&fit=crop&w=600&q=80" alt="Luvo Mini Sampler Set" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    
                     <div style="text-align: center;">
                         <span style="background: #f3f6f3; color: #3d6a4e; font-size: 0.75rem; padding: 5px 14px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">Category: Mini Gift Set</span>
                         <h3 style="font-family: var(--font-serif); margin: 14px 0 6px; font-size: 1.4rem; color: #222;">Luvo Mini Sampler Set</h3>
@@ -356,12 +474,10 @@
                         <p style="color: #222; font-weight: 700; font-size: 1.25rem; margin-bottom: 20px;">PKR 850</p>
                     </div>
                 </div>
-
                 <div style="display: flex; flex-direction: column; gap: 10px;">
                     <button class="btn" onclick="addToCart('Luvo Mini Sampler Set', 850, 'Mini Box')" style="width: 100%; background: #4a6b5d; color: white; padding: 13px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;">ADD TO CART</button>
                     <button type="button" onclick="toggleReviews('mini-sampler')" style="background: transparent; border: none; color: #666; font-size: 0.85rem; text-decoration: underline; cursor: pointer; padding: 4px;">View / Add Reviews</button>
                 </div>
-
                 <div id="reviews-mini-sampler" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; text-align: left;">
                     <div id="review-list-mini-sampler"></div>
                     <div style="margin-top: 10px;">
@@ -369,15 +485,14 @@
                         <button onclick="submitReview('mini-sampler')" style="background: #222; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; margin-top: 5px; cursor: pointer;">Submit</button>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <!-- PRODUCT 3: Detox Charcoal Soap -->
-            <div class="product-card" style="background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1px solid #f0eee9; display: flex; flex-direction: column; justify-content: space-between;">
+            <!-- PRODUCT 3 -->
+            <article class="product-card" style="background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1px solid #f0eee9; display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
                     <div style="width: 100%; height: 260px; overflow: hidden; border-radius: 8px; margin-bottom: 20px;">
                         <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80" alt="Detox Charcoal Soap" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    
                     <div style="text-align: center;">
                         <span style="background: #f3f6f3; color: #3d6a4e; font-size: 0.75rem; padding: 5px 14px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">Shape: Smooth Oval</span>
                         <h3 style="font-family: var(--font-serif); margin: 14px 0 6px; font-size: 1.4rem; color: #222;">Detox Charcoal Soap</h3>
@@ -388,12 +503,10 @@
                         <p style="color: #222; font-weight: 700; font-size: 1.25rem; margin-bottom: 20px;">PKR 500</p>
                     </div>
                 </div>
-
                 <div style="display: flex; flex-direction: column; gap: 10px;">
                     <button class="btn" onclick="addToCart('Detox Charcoal Soap', 500, 'Smooth Oval')" style="width: 100%; background: #4a6b5d; color: white; padding: 13px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;">ADD TO CART</button>
                     <button type="button" onclick="toggleReviews('charcoal-bar')" style="background: transparent; border: none; color: #666; font-size: 0.85rem; text-decoration: underline; cursor: pointer; padding: 4px;">View / Add Reviews</button>
                 </div>
-
                 <div id="reviews-charcoal-bar" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; text-align: left;">
                     <div id="review-list-charcoal-bar"></div>
                     <div style="margin-top: 10px;">
@@ -401,15 +514,14 @@
                         <button onclick="submitReview('charcoal-bar')" style="background: #222; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; margin-top: 5px; cursor: pointer;">Submit</button>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <!-- PRODUCT 4: Herbal Leaf Soap (NEW) -->
-            <div class="product-card" style="background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1px solid #f0eee9; display: flex; flex-direction: column; justify-content: space-between;">
+            <!-- PRODUCT 4 -->
+            <article class="product-card" style="background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1px solid #f0eee9; display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
                     <div style="width: 100%; height: 260px; overflow: hidden; border-radius: 8px; margin-bottom: 20px;">
                         <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?auto=format&fit=crop&w=600&q=80" alt="Pure Herbal Leaf Soap" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    
                     <div style="text-align: center;">
                         <span style="background: #f3f6f3; color: #3d6a4e; font-size: 0.75rem; padding: 5px 14px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">Shape: Leaf Mold</span>
                         <h3 style="font-family: var(--font-serif); margin: 14px 0 6px; font-size: 1.4rem; color: #222;">Pure Herbal Leaf Soap</h3>
@@ -420,12 +532,10 @@
                         <p style="color: #222; font-weight: 700; font-size: 1.25rem; margin-bottom: 20px;">PKR 480</p>
                     </div>
                 </div>
-
                 <div style="display: flex; flex-direction: column; gap: 10px;">
                     <button class="btn" onclick="addToCart('Pure Herbal Leaf Soap', 480, 'Leaf Mold')" style="width: 100%; background: #4a6b5d; color: white; padding: 13px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;">ADD TO CART</button>
                     <button type="button" onclick="toggleReviews('herbal-leaf')" style="background: transparent; border: none; color: #666; font-size: 0.85rem; text-decoration: underline; cursor: pointer; padding: 4px;">View / Add Reviews</button>
                 </div>
-
                 <div id="reviews-herbal-leaf" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; text-align: left;">
                     <div id="review-list-herbal-leaf"></div>
                     <div style="margin-top: 10px;">
@@ -433,15 +543,14 @@
                         <button onclick="submitReview('herbal-leaf')" style="background: #222; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; margin-top: 5px; cursor: pointer;">Submit</button>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <!-- PRODUCT 5: Rose Petal Glow Bar (NEW) -->
-            <div class="product-card" style="background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1px solid #f0eee9; display: flex; flex-direction: column; justify-content: space-between;">
+            <!-- PRODUCT 5 -->
+            <article class="product-card" style="background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1px solid #f0eee9; display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
                     <div style="width: 100%; height: 260px; overflow: hidden; border-radius: 8px; margin-bottom: 20px;">
                         <img src="https://images.unsplash.com/photo-1547793549-70faf88838c8?auto=format&fit=crop&w=600&q=80" alt="Rose Petal Glow Bar" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    
                     <div style="text-align: center;">
                         <span style="background: #f3f6f3; color: #3d6a4e; font-size: 0.75rem; padding: 5px 14px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">Shape: Heart Shape</span>
                         <h3 style="font-family: var(--font-serif); margin: 14px 0 6px; font-size: 1.4rem; color: #222;">Rose Petal Glow Bar</h3>
@@ -452,12 +561,10 @@
                         <p style="color: #222; font-weight: 700; font-size: 1.25rem; margin-bottom: 20px;">PKR 520</p>
                     </div>
                 </div>
-
                 <div style="display: flex; flex-direction: column; gap: 10px;">
                     <button class="btn" onclick="addToCart('Rose Petal Glow Bar', 520, 'Heart Shape')" style="width: 100%; background: #4a6b5d; color: white; padding: 13px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;">ADD TO CART</button>
                     <button type="button" onclick="toggleReviews('rose-glow')" style="background: transparent; border: none; color: #666; font-size: 0.85rem; text-decoration: underline; cursor: pointer; padding: 4px;">View / Add Reviews</button>
                 </div>
-
                 <div id="reviews-rose-glow" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; text-align: left;">
                     <div id="review-list-rose-glow"></div>
                     <div style="margin-top: 10px;">
@@ -465,18 +572,17 @@
                         <button onclick="submitReview('rose-glow')" style="background: #222; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; margin-top: 5px; cursor: pointer;">Submit</button>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <!-- PRODUCT 6: Honey & Oatmeal Scrub (NEW) -->
-            <div class="product-card" style="background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1px solid #f0eee9; display: flex; flex-direction: column; justify-content: space-between;">
+            <!-- PRODUCT 6 -->
+            <article class="product-card" style="background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); border: 1px solid #f0eee9; display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
                     <div style="width: 100%; height: 260px; overflow: hidden; border-radius: 8px; margin-bottom: 20px;">
-                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=600&q=80" alt="Honey & Oatmeal Scrub" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=600&q=80" alt="Honey &amp; Oatmeal Scrub" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    
                     <div style="text-align: center;">
                         <span style="background: #f3f6f3; color: #3d6a4e; font-size: 0.75rem; padding: 5px 14px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">Shape: Rectangular Bar</span>
-                        <h3 style="font-family: var(--font-serif); margin: 14px 0 6px; font-size: 1.4rem; color: #222;">Honey & Oatmeal Scrub</h3>
+                        <h3 style="font-family: var(--font-serif); margin: 14px 0 6px; font-size: 1.4rem; color: #222;">Honey &amp; Oatmeal Scrub</h3>
                         <div style="color: #d4af37; font-size: 0.9rem; margin-bottom: 10px;">
                             ★ ★ ★ ★ ★ <span style="color: #888; font-size: 0.85rem; font-family: sans-serif; margin-left: 4px;">(4.8)</span>
                         </div>
@@ -484,12 +590,10 @@
                         <p style="color: #222; font-weight: 700; font-size: 1.25rem; margin-bottom: 20px;">PKR 470</p>
                     </div>
                 </div>
-
                 <div style="display: flex; flex-direction: column; gap: 10px;">
-                    <button class="btn" onclick="addToCart('Honey & Oatmeal Scrub', 470, 'Rectangular Bar')" style="width: 100%; background: #4a6b5d; color: white; padding: 13px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;">ADD TO CART</button>
+                    <button class="btn" onclick="addToCart('Honey &amp; Oatmeal Scrub', 470, 'Rectangular Bar')" style="width: 100%; background: #4a6b5d; color: white; padding: 13px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;">ADD TO CART</button>
                     <button type="button" onclick="toggleReviews('honey-oatmeal')" style="background: transparent; border: none; color: #666; font-size: 0.85rem; text-decoration: underline; cursor: pointer; padding: 4px;">View / Add Reviews</button>
                 </div>
-
                 <div id="reviews-honey-oatmeal" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; text-align: left;">
                     <div id="review-list-honey-oatmeal"></div>
                     <div style="margin-top: 10px;">
@@ -497,41 +601,11 @@
                         <button onclick="submitReview('honey-oatmeal')" style="background: #222; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; margin-top: 5px; cursor: pointer;">Submit</button>
                     </div>
                 </div>
-            </div>
+            </article>
 
         </div>
     </section>
 </main>
-
-    <!-- ABOUT PAGE -->
- <main id="about-page" class="page-view">
-        <div class="page-header">
-            <h1>Our Brand Story ✨</h1>
-            <p style="color: var(--accent-gold); font-style: italic; font-family: var(--font-serif);">Crafted with Love By Kainat Abdullah 🌿</p>
-        </div>
-        <section class="container" style="padding: 60px 0; max-width: 800px; text-align: center;">
-            <h2 style="font-family: var(--font-serif); margin-bottom: 20px;">Homemade, Pure, and 100% Hygienic 🧼</h2>
-            <p style="margin-bottom: 20px; line-height: 1.8;">
-                <strong>Luvo Organic</strong> was born out of a simple, uncompromising belief: skincare should be pure, intentional, and deeply nourishing 🍃. Every single soap bar is lovingly <strong>made at home in small batches</strong> by Kainat Abdullah to ensure complete purity and warmth in every product 🌸.
-            </p>
-            <p style="margin-bottom: 30px; line-height: 1.8;">
-                In a world full of harsh chemical additives and synthetic formulas, we offer an authentic, natural alternative 🌿. We carefully blend botanical ingredients, rich essential oils, and raw elements that respect your skin's natural balance ✨.
-            </p>
-
-            <div style="background-color: rgba(212, 175, 55, 0.08); border-left: 4px solid var(--accent-gold); padding: 25px; margin: 35px 0; border-radius: 8px; text-align: left;">
-                <h3 style="margin-top: 0; font-family: var(--font-serif); margin-bottom: 15px;">Why Luvo Organic? 💚</h3>
-                <ul style="padding-left: 20px; margin-bottom: 0; line-height: 1.8; list-style-type: none;">
-                    <li style="margin-bottom: 10px;">✨ <strong>100% Handcrafted:</strong> Prepared with care in hygienic batches for fresh, organic potency.</li>
-                    <li style="margin-bottom: 10px;">🌱 <strong>Sustainably Sourced:</strong> Ethical botanicals that are gentle on your skin and kind to nature.</li>
-                    <li>🚫 <strong>Zero Compromises:</strong> Totally free from harsh sulfates, artificial fillers, and toxic chemicals.</li>
-                </ul>
-            </div>
-
-            <p style="font-family: var(--font-serif); font-size: 1.1rem; color: var(--accent-gold); margin-top: 30px; font-style: italic;">
-                Thank you for letting us be a part of your daily natural skincare ritual! 💛
-            </p>
-        </section>
-    </main>
 <!-- CONTACT PAGE -->
     <main id="contact-page" class="page-view">
         <div class="page-header">
