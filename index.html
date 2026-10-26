@@ -5,8 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Luvo Organics — Handcrafted Organic Soap by Kainat Abdullah</title>
 <meta name="description" content="Luvo Organics offers 100% pure handcrafted organic soaps in Pakistan. Chemical-free skincare for healthy, glowing skin.">
-
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23648253'/%3E%3Crect x='24' y='34' width='52' height='32' rx='11' fill='%23FDFBF7'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#193a2b">
+<link rel="canonical" href="https://luvoorganics.github.io/Luvoorganic/">
+<link rel="icon" type="image/png" sizes="150x150" href="https://luvoorganics.github.io/Luvoorganic/logo.png">
+<link rel="apple-touch-icon" href="https://luvoorganics.github.io/Luvoorganic/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Luvo Organics">
+<meta property="og:title" content="Luvo Organics — Handcrafted Organic Soap">
+<meta property="og:description" content="Explore handcrafted Neem &amp; Charcoal, Coffee, Rice and Sandal soaps from Luvo Organics.">
+<meta property="og:url" content="https://luvoorganics.github.io/Luvoorganic/">
+<meta property="og:image" content="https://luvoorganics.github.io/Luvoorganic/logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Luvo Organics — Handcrafted Organic Soap">
+<meta name="twitter:description" content="Explore handcrafted Neem &amp; Charcoal, Coffee, Rice and Sandal soaps from Luvo Organics.">
+<meta name="twitter:image" content="https://luvoorganics.github.io/Luvoorganic/logo.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,13 +37,30 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Brand",
-  "name": "Luvo Organics",
-  "url": "https://luvoorganics.github.io/Luvoorganic/",
-  "description": "Luvo Organics is a handcrafted organic soap brand offering 100% natural, chemical-free skincare products.",
-  "sameAs": [
-    "https://www.facebook.com/people/Luvoorganic/61593021946082/",
-    "https://www.instagram.com/luvoorganic/?hl=en"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://luvoorganics.github.io/Luvoorganic/#website",
+      "name": "Luvo Organics",
+      "url": "https://luvoorganics.github.io/Luvoorganic/",
+      "publisher": { "@id": "https://luvoorganics.github.io/Luvoorganic/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://luvoorganics.github.io/Luvoorganic/#organization",
+      "name": "Luvo Organics",
+      "url": "https://luvoorganics.github.io/Luvoorganic/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://luvoorganics.github.io/Luvoorganic/logo.png",
+        "width": 150,
+        "height": 150
+      },
+      "sameAs": [
+        "https://www.facebook.com/people/Luvoorganic/61593021946082/",
+        "https://www.instagram.com/luvoorganic/?hl=en"
+      ]
+    }
   ]
 }
 </script>
@@ -808,6 +837,47 @@
   @media(prefers-reduced-motion:reduce){
     .hero-photo-card-one,.hero-photo-card-two,.product-photo,.hero-photo-stage::after{animation:none!important}
   }
+  .product-grid{
+    position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px
+  }
+  .catalog-card{
+    min-width:0;padding:14px;border:1px solid rgba(43,63,46,.14);border-radius:18px;
+    background:rgba(255,255,255,.78);display:flex;flex-direction:column;
+    box-shadow:0 12px 32px rgba(38,53,43,.08)
+  }
+  .catalog-photo{
+    width:100%;aspect-ratio:4/5;object-fit:cover;background:#e9e4d9;
+    border:1px solid rgba(43,63,46,.12);border-radius:14px
+  }
+  .catalog-thumbnails{display:flex;gap:8px;margin-top:10px;overflow-x:auto;padding:2px 1px 4px}
+  .catalog-thumbnail{
+    flex:0 0 54px;width:54px;height:54px;padding:0;border:1px solid rgba(43,63,46,.2);
+    border-radius:10px;overflow:hidden;background:transparent;cursor:pointer;opacity:.72
+  }
+  .catalog-thumbnail[aria-pressed="true"]{border:2px solid #526b4e;opacity:1}
+  .catalog-thumbnail img{width:100%;height:100%;object-fit:cover}
+  .catalog-info{display:flex;flex:1;flex-direction:column;padding:19px 4px 4px}
+  .catalog-info h3{font-size:1.5rem;font-weight:500;color:#26352b;margin-bottom:9px}
+  .catalog-best-for{
+    align-self:flex-start;padding:0;border:0;background:none;color:#526b4e;
+    font:600 .82rem 'Work Sans',sans-serif;text-align:left;text-decoration:underline;
+    text-decoration-style:dotted;text-underline-offset:4px;cursor:pointer
+  }
+  .catalog-best-for::after{content:" +";font-size:1rem;text-decoration:none}
+  .catalog-best-for[aria-expanded="true"]::after{content:" −"}
+  .catalog-description{margin-top:9px;color:rgba(38,53,43,.8);font-size:.86rem;line-height:1.65}
+  .catalog-price{margin:17px 0;color:#526b4e;font:1.25rem 'Fraunces',serif}
+  .catalog-info .btn{width:100%;margin-top:auto}
+  @media(max-width:1000px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:520px){
+    .product-grid{grid-template-columns:1fr;gap:16px}
+    .catalog-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 14px;padding:12px}
+    .catalog-photo{grid-column:1;grid-row:1/3;aspect-ratio:4/5}
+    .catalog-thumbnails{grid-column:1;grid-row:3;max-width:100%}
+    .catalog-info{grid-column:2;grid-row:1/4;padding:8px 0}
+    .catalog-info h3{font-size:1.25rem}
+    .catalog-info p{font-size:.78rem;min-height:0}
+  }
 </style>
 </head>
 <body>
@@ -853,12 +923,12 @@
   <div class="hero-visual">
     <div class="hero-photo-stage" aria-label="Luvo Organics soap photo gallery">
       <figure class="hero-photo-card hero-photo-card-one">
-        <img id="heroNeemPhoto" alt="Neem and tea tree handcrafted soap" hidden>
-        <div class="photo-placeholder photo-placeholder-leaf" id="heroNeemPlaceholder"><span aria-hidden="true">✳</span><small>Neem &amp; Tea Tree</small></div>
+        <img id="heroNeemPhoto" alt="Neem and charcoal handmade soap" hidden>
+        <div class="photo-placeholder photo-placeholder-leaf" id="heroNeemPlaceholder"><span aria-hidden="true">✳</span><small>Neem &amp; Charcoal</small></div>
       </figure>
       <figure class="hero-photo-card hero-photo-card-two">
-        <img id="heroCoffeePhoto" alt="Coffee exfoliator handcrafted soap" hidden>
-        <div class="photo-placeholder photo-placeholder-coffee" id="heroCoffeePlaceholder"><span aria-hidden="true">❋</span><small>Coffee Exfoliator</small></div>
+        <img id="heroCoffeePhoto" alt="Coffee handmade soap" hidden>
+        <div class="photo-placeholder photo-placeholder-coffee" id="heroCoffeePlaceholder"><span aria-hidden="true">❋</span><small>Coffee Soap</small></div>
       </figure>
       <span class="drag-hint">SMALL-BATCH BOTANICAL CARE&nbsp; · &nbsp;MADE BY HAND</span>
     </div>
@@ -914,31 +984,10 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Our Collection</div>
-      <h2>Two bars. One ritual.</h2>
-      <p>Meet our two handcrafted soaps. Choose the botanical leaf bar or the coffee scrub for your everyday ritual.</p>
+      <h2>Find the bar for your skin ritual.</h2>
+      <p>Every soap has its own purpose—from a purifying cleanse to exfoliating, brightening or softening care. See what each bar is made for and choose what suits your routine.</p>
     </div>
-    <div class="product-layout">
-      <div class="product-visual">
-        <img id="productPhoto" class="product-photo" alt="" hidden>
-        <div class="photo-placeholder product-photo-placeholder" id="productPhotoPlaceholder"><span class="placeholder-mark" aria-hidden="true">✳</span><strong>Product photo slot</strong><small>The soap photo will appear here</small></div>
-        <span class="viewer-hint">HANDCRAFTED IN SMALL BATCHES</span>
-        <button class="carousel-arrow prev" id="prevSoap" aria-label="Previous Soap">&#10094;</button>
-        <button class="carousel-arrow next" id="nextSoap" aria-label="Next Soap">&#10095;</button>
-      </div>
-      <div class="product-panel">
-        <div class="p-shape" id="prod-shape">Soft Rectangle</div>
-        <h3 class="p-name" id="prod-name">—</h3>
-        <p class="p-desc" id="prod-desc">—</p>
-        <div class="product-notes" id="prodNotes" aria-label="Product details"></div>
-        <div class="form-status model-load-status" id="modelLoadStatus" aria-live="polite">Product photo will be added here.</div>
-        <div class="p-price" id="prod-price">—</div>
-        <div class="p-actions">
-          <button class="btn btn-solid" id="addToCartBtn">Add to Cart</button>
-          <a href="https://www.instagram.com/luvoorganic/?hl=en" target="_blank" rel="noopener" class="btn btn-outline">See on Instagram</a>
-        </div>
-        <div class="prod-dots" id="prodDots"></div>
-      </div>
-    </div>
+    <div class="product-grid" id="productGrid" aria-label="Handcrafted soap collection"></div>
   </div>
 </section>
 
@@ -1583,12 +1632,96 @@
 
   /* ---------- PRODUCT 3D VIEWER WITH ARROWS ---------- */
   const products = [
-    { id:"neem-tea-tree", name:"Neem & Tea Tree", shapeType:"rectangle", shapeLabel:"Botanical leaf bar", desc:"A clarifying botanical bar for oily or acne-prone skin, finished with a raised leaf carving.", details:["Neem + tea tree","Carved leaf design","Hand-finished"], price:"Rs 450", priceNum:450, color:0x526b4b, imageUrl:"" },
-    { id:"coffee-exfoliator", name:"Coffee Exfoliator", shapeType:"round", shapeLabel:"Round coffee-ground bar", desc:"A gently exfoliating coffee bar shaped as a round soap with a raised botanical seal.", details:["Coffee-ground scrub","Round botanical seal","Hand-finished"], price:"Rs 450", priceNum:450, color:0x68734f, imageUrl:"" }
+    { id:"neem-charcoal", name:"Neem & Charcoal Soap", bestFor:"A purifying, protective daily cleanse; the Neem Soap packaging also highlights healing care.", price:"Rs 450", priceNum:450, color:0x526b4b, imageUrls:["./Products/Neem%20%26%20Charcoal/WhatsApp%20Image%202026-10-24%20at%208.23.07%20PM%20(1).jpeg","./Products/Neem%20%26%20Charcoal/WhatsApp%20Image%202026-10-24%20at%208.23.07%20PM%20(2).jpeg"] },
+    { id:"coffee", name:"Coffee Soap", bestFor:"Exfoliation for a refreshed feel and brighter-looking skin; these are the benefits highlighted on the packaging.", price:"Rs 450", priceNum:450, color:0x805b3d, imageUrls:["./Products/Coffee/4.jpeg","./Products/Coffee/WhatsApp%20Image%202026-10-24%20at%208.23.08%20PM%20(1).jpeg"] },
+    { id:"rice", name:"Rice Soap", bestFor:"A radiant-looking finish; the packaging describes it as natural radiance for radiant skin.", price:"Rs 450", priceNum:450, color:0xb9b9a2, imageUrls:["./Products/Rice/2.jpeg","./Products/Rice/3.jpeg","./Products/Rice/6.jpeg"] },
+    { id:"sandal", name:"Sandal Soap", bestFor:"A calming, nourishing cleanse that leaves skin feeling soft—the benefits highlighted on the packaging.", price:"Rs 450", priceNum:450, color:0x9b6947, imageUrls:["./Products/Sandal/1.jpeg","./Products/Sandal/5.jpeg"] }
   ];
 
   let selectedIndex = 0;
   let productPhotoRequest = 0;
+
+  function renderProducts(){
+    const grid = document.getElementById('productGrid');
+    products.forEach(product=>{
+      const card = document.createElement('article');
+      card.className = 'catalog-card';
+
+      const photo = document.createElement('img');
+      photo.className = 'catalog-photo';
+      photo.src = product.imageUrls[0];
+      photo.alt = `${product.name} product photo`;
+      photo.loading = 'lazy';
+
+      const thumbnails = document.createElement('div');
+      thumbnails.className = 'catalog-thumbnails';
+      thumbnails.setAttribute('aria-label', `${product.name} photos`);
+      product.imageUrls.forEach((imageUrl,index)=>{
+        const thumbnail = document.createElement('button');
+        thumbnail.type = 'button';
+        thumbnail.className = 'catalog-thumbnail';
+        thumbnail.setAttribute('aria-label', `View ${product.name} photo ${index+1}`);
+        thumbnail.setAttribute('aria-pressed', String(index===0));
+        const thumbnailImage = document.createElement('img');
+        thumbnailImage.src = imageUrl;
+        thumbnailImage.alt = '';
+        thumbnailImage.loading = 'lazy';
+        thumbnail.appendChild(thumbnailImage);
+        thumbnail.addEventListener('click',()=>{
+          photo.src = imageUrl;
+          thumbnails.querySelectorAll('.catalog-thumbnail').forEach((button,buttonIndex)=>{
+            button.setAttribute('aria-pressed',String(buttonIndex===index));
+          });
+        });
+        thumbnails.appendChild(thumbnail);
+      });
+
+      const info = document.createElement('div');
+      info.className = 'catalog-info';
+      const name = document.createElement('h3');
+      name.textContent = product.name;
+      const bestFor = document.createElement('button');
+      bestFor.type = 'button';
+      bestFor.className = 'catalog-best-for';
+      bestFor.textContent = 'Best for';
+      bestFor.setAttribute('aria-expanded','false');
+      const description = document.createElement('p');
+      description.className = 'catalog-description';
+      description.id = `best-for-${product.id}`;
+      description.hidden = true;
+      description.textContent = product.bestFor;
+      bestFor.setAttribute('aria-controls',description.id);
+      bestFor.addEventListener('click',()=>{
+        const isExpanded = bestFor.getAttribute('aria-expanded') === 'true';
+        bestFor.setAttribute('aria-expanded',String(!isExpanded));
+        description.hidden = isExpanded;
+      });
+      const price = document.createElement('div');
+      price.className = 'catalog-price';
+      price.textContent = product.price;
+      const addButton = document.createElement('button');
+      addButton.type = 'button';
+      addButton.className = 'btn btn-solid';
+      addButton.dataset.addProduct = product.id;
+      addButton.textContent = 'Add to Cart';
+      info.append(name,bestFor,description,price,addButton);
+      card.append(photo,thumbnails,info);
+      grid.appendChild(card);
+    });
+
+    grid.addEventListener('click',event=>{
+      const button = event.target.closest('[data-add-product]');
+      if(!button) return;
+      const product = products.find(item=>item.id===button.dataset.addProduct);
+      if(!product) return;
+      const existing = cart.find(item=>item.id===product.id);
+      if(existing) existing.qty += 1;
+      else cart.push({ id:product.id, name:product.name, price:product.priceNum, color:product.color, qty:1 });
+      renderCart();
+      cartDrawer.classList.add('show');
+      cartOverlay.classList.add('show');
+    });
+  }
 
   function showPhoto(img, placeholder, product, requestId){
     img.hidden = true;
@@ -1620,28 +1753,18 @@
       img.hidden = true;
       img.removeAttribute('src');
       placeholder.hidden = false;
-      if(!product.imageUrl) return;
+      const imageUrl = product.imageUrls[0];
+      if(!imageUrl) return;
       img.onload = ()=>{ img.hidden = false; placeholder.hidden = true; };
       img.onerror = ()=>{
         img.hidden = true;
         placeholder.hidden = false;
-        console.error(`Unable to load the hero product photo for ${product.name}: ${product.imageUrl}`);
+        console.error(`Unable to load the hero product photo for ${product.name}: ${imageUrl}`);
       };
-      img.src = product.imageUrl;
+      img.src = imageUrl;
     };
     showHeroPhoto(neemImage,document.getElementById('heroNeemPlaceholder'),neem);
     showHeroPhoto(coffeeImage,document.getElementById('heroCoffeePlaceholder'),coffee);
-  }
-
-  function initPhotoProducts(){
-    buildDots();
-    selectProduct(0);
-    document.getElementById('prevSoap').addEventListener('click',()=>{
-      selectProduct((selectedIndex - 1 + products.length) % products.length);
-    });
-    document.getElementById('nextSoap').addEventListener('click',()=>{
-      selectProduct((selectedIndex + 1) % products.length);
-    });
   }
 
   function initProducts(){
@@ -1847,16 +1970,8 @@
     prodRenderer.setSize(container.clientWidth, container.clientHeight);
   }
 
-  let productSectionInView = false;
-  document.addEventListener('keydown', event=>{
-    if(!productSectionInView || event.altKey || event.ctrlKey || event.metaKey) return;
-    if(event.target instanceof HTMLElement && /INPUT|TEXTAREA|SELECT/.test(event.target.tagName)) return;
-    if(event.key === 'ArrowRight') selectProduct((selectedIndex + 1) % products.length);
-    if(event.key === 'ArrowLeft') selectProduct((selectedIndex - 1 + products.length) % products.length);
-  });
-
   function activateStoreInteractions(){
-    const reveals = document.querySelectorAll('.story-content,.story-features>div,.ingredient,.section-head,.product-layout,.review-card,.review-form-panel,.contact-layout>*');
+    const reveals = document.querySelectorAll('.story-content,.story-features>div,.ingredient,.section-head,.product-grid,.review-card,.review-form-panel,.contact-layout>*');
     const revealObserver = new IntersectionObserver(entries=>{
       entries.forEach(entry=>{
         if(entry.isIntersecting){
@@ -1869,11 +1984,6 @@
       element.classList.add('reveal-item');
       revealObserver.observe(element);
     });
-
-    const productsObserver = new IntersectionObserver(entries=>{
-      productSectionInView = entries.some(entry=>entry.isIntersecting);
-    },{ threshold:0.2 });
-    productsObserver.observe(document.getElementById('products'));
 
     if(!REDUCE_MOTION){
       const motionObserver = new IntersectionObserver(entries=>{
@@ -1929,15 +2039,6 @@
   document.getElementById('closeCart').addEventListener('click', closeCart);
   cartOverlay.addEventListener('click', closeCart);
   function closeCart(){ cartDrawer.classList.remove('show'); cartOverlay.classList.remove('show'); }
-
-  document.getElementById('addToCartBtn').addEventListener('click', ()=>{
-    const p = products[selectedIndex];
-    const existing = cart.find(i=>i.id===p.id);
-    if(existing) existing.qty += 1;
-    else cart.push({ id:p.id, name:p.name, price:p.priceNum, color:p.color, qty:1 });
-    renderCart();
-    cartDrawer.classList.add('show'); cartOverlay.classList.add('show');
-  });
 
   function renderCart(){
     const wrap = document.getElementById('cartItems');
@@ -2317,7 +2418,7 @@
   }
 
   window.addEventListener('load', function(){
-    const start = ()=>{ renderHeroPhotos(); initPhotoProducts(); renderCart(); activateStoreInteractions(); };
+    const start = ()=>{ renderHeroPhotos(); renderProducts(); renderCart(); activateStoreInteractions(); };
     if(document.fonts && document.fonts.ready){ document.fonts.ready.then(start); }
     else { start(); }
   });
