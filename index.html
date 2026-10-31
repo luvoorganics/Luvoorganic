@@ -298,7 +298,8 @@
   .cart-items{ flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:14px; }
   .empty-msg{ color:var(--spruce-text); opacity:0.7; font-size:0.9rem; }
   .cart-item{ display:flex; gap:12px; align-items:center; border-bottom:1px solid var(--line); padding-bottom:12px; }
-  .cart-item .swatch{ width:44px; height:44px; border-radius:8px; flex-shrink:0; }
+  .cart-item .ci-media{ position:relative; width:44px; height:44px; border-radius:8px; flex-shrink:0; overflow:hidden; }
+  .cart-item .ci-thumb{ display:block; width:100%; height:100%; object-fit:cover; }
   .cart-item .ci-info{ flex:1; }
   .cart-item .ci-name{ font-size:0.9rem; font-weight:500; }
   .cart-item .ci-price{ font-size:0.82rem; color:var(--spruce-text); }
@@ -798,6 +799,34 @@
   #cartDrawer #checkoutBtn{flex:0 0 auto}
   #cartDrawer .cart-voucher label,#cartDrawer .cart-row,#cartDrawer .empty-msg,#cartDrawer .ci-name,#cartDrawer .ci-price{color:#26352b}
   #adminOrdersStatus:empty{display:none}
+  .track-modal{width:min(560px,92vw)}
+  .track-list{display:flex;flex-direction:column;gap:12px;max-height:min(56vh,560px);overflow-y:auto;padding-right:2px}
+  .track-card{display:block;width:100%;text-align:left;padding:15px 16px;border:1px solid rgba(43,63,46,.14);border-radius:16px;background:rgba(255,255,255,.82);color:#26352b;font-family:'Work Sans',sans-serif;cursor:pointer;transition:border-color .2s ease,box-shadow .2s ease}
+  .track-card:hover{border-color:rgba(49,88,67,.45);box-shadow:0 10px 24px rgba(38,53,43,.08)}
+  .track-row{display:flex;align-items:center;gap:12px}
+  .track-thumbs{display:flex;gap:6px;flex:0 0 auto}
+  .track-thumb{width:38px;height:38px;border-radius:9px;object-fit:cover;background:#e9e4d9;border:1px solid rgba(43,63,46,.12)}
+  .track-more{display:grid;place-items:center;width:38px;height:38px;border-radius:9px;background:rgba(43,63,46,.07);font-size:.72rem;font-weight:700;color:#315843}
+  .track-rowtext{flex:1;min-width:0}
+  .track-order{display:block;font-family:'Fraunces',serif;font-size:1.12rem;color:#26352b}
+  .track-meta{display:block;margin-top:2px;font-size:.76rem;color:rgba(38,53,43,.66)}
+  .track-badge{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:99px;background:rgba(113,132,95,.16);color:#315843;white-space:nowrap}
+  .track-badge.is-delivered{background:rgba(49,88,67,.16);color:#2f6b45}
+  .track-badge.is-cancelled{background:rgba(168,118,89,.18);color:#a87659}
+  .track-detail{display:none;margin-top:15px;padding-top:14px;border-top:1px solid rgba(43,63,46,.12)}
+  .track-card[aria-expanded="true"] .track-detail{display:block}
+  .track-steps{position:relative;display:flex;justify-content:space-between;gap:4px;margin:6px 0 4px}
+  .track-steps::before{content:'';position:absolute;top:8px;left:10%;right:10%;height:2px;background:rgba(43,63,46,.16)}
+  .track-fill{position:absolute;top:8px;left:10%;height:2px;background:#71845f;border-radius:2px}
+  .track-step{position:relative;flex:1;text-align:center;padding-top:24px;font-size:.64rem;letter-spacing:.03em;text-transform:uppercase;color:rgba(38,53,43,.5)}
+  .track-step::before{content:'';position:absolute;top:3px;left:50%;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:#f7f3e9;border:2px solid rgba(43,63,46,.22)}
+  .track-step.done::before{background:#71845f;border-color:#71845f}
+  .track-step.current::before{background:#315843;border-color:#315843;box-shadow:0 0 0 4px rgba(49,88,67,.15)}
+  .track-step.current{color:#26352b;font-weight:700}
+  .track-step time{display:block;margin-top:3px;font-size:.58rem;letter-spacing:0;text-transform:none;color:rgba(38,53,43,.52)}
+  .track-items{display:flex;flex-wrap:wrap;gap:6px 10px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(43,63,46,.12);font-size:.78rem;color:#26352b}
+  .track-note{margin-top:12px;font-size:.8rem;line-height:1.6;color:#315843}
+  @media(max-width:620px){.track-modal{padding:28px 18px}.track-step{font-size:.56rem}.track-step time{font-size:.52rem}.track-badge{padding:4px 8px;font-size:.62rem}}
   #adminModal #adminPanelView[style*="block"]{display:block}
   .reveal-item{transform:none!important;transition:opacity .28s ease!important}
   .reveal-item.is-visible{transform:none!important}
@@ -904,6 +933,9 @@
   <div class="header-actions">
     <button id="adminBtn" class="icon-btn" aria-label="Owner dashboard" title="Owner dashboard (sign-in required)">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/><rect x="13.5" y="3.5" width="7" height="7" rx="1"/><rect x="3.5" y="13.5" width="7" height="7" rx="1"/><rect x="13.5" y="13.5" width="7" height="7" rx="1"/></svg>
+    </button>
+    <button id="trackBtn" class="icon-btn" aria-label="Track your order" title="Track your order">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2 20.4 7.6v8.8L12 20.8 3.6 16.4V7.6Z"/><path d="M3.6 7.6 12 12l8.4-4.4"/><path d="M12 12v8.8"/></svg>
     </button>
     <button id="accountBtn" class="icon-btn" aria-label="Account">
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20c.7-3.5 3.3-5.3 7.5-5.3s6.8 1.8 7.5 5.3"/></svg>
@@ -1115,7 +1147,7 @@
   <button class="icon-btn modal-close" data-close="loginModal" aria-label="Close">✕</button>
   <div id="loggedOutView">
     <h3>Welcome to Luvo Organics</h3>
-    <p class="modal-sub">Sign in to check out faster and track your orders.</p>
+    <p class="modal-sub">Sign in with Google to place your order and follow it till it reaches you.</p>
     <button id="googleSignIn" class="btn btn-outline auth-btn">Continue with Google</button>
     <div class="form-status" id="authStatus"></div>
   </div>
@@ -1123,6 +1155,22 @@
     <h3>Hi, <span id="userNameSpan"></span></h3>
     <p class="modal-sub" id="userEmailSpan"></p>
     <button id="signOutBtn" class="btn btn-outline auth-btn">Sign Out</button>
+  </div>
+</div>
+
+<!-- TRACK ORDER MODAL -->
+<div id="trackOverlay" class="overlay"></div>
+<div id="trackModal" class="modal track-modal">
+  <button class="icon-btn modal-close" data-close="trackModal" aria-label="Close">✕</button>
+  <h3>Track Your Orders</h3>
+  <p class="modal-sub">Every order placed with this account shows up here. Tap an order to see how far along it is.</p>
+  <div id="trackSignedOut">
+    <button id="trackGoogleSignIn" class="btn btn-outline auth-btn" type="button">Continue with Google</button>
+    <div class="form-status" id="trackAuthStatus" aria-live="polite"></div>
+  </div>
+  <div id="trackSignedIn" style="display:none">
+    <div class="form-status" id="trackStatus" aria-live="polite"></div>
+    <div id="trackOrderList" class="track-list"></div>
   </div>
 </div>
 
@@ -1163,8 +1211,9 @@
     <p class="modal-sub" id="confirmSub">Your order has been placed.</p>
     <p class="modal-sub" style="margin-bottom:6px;">Your order number is</p>
     <div id="orderNumberDisplay" style="font-family:'Fraunces',serif; font-size:2rem; color:var(--spruce-text); margin:6px 0;">—</div>
-    <p class="modal-sub">Keep this reference handy. You can send your order details to our team on WhatsApp if you want to.</p>
+    <p class="modal-sub">Use the <strong>Track Order</strong> button in the header any time to watch this order move from preparing to delivered.</p>
     <a id="confirmWhatsApp" class="btn btn-outline" target="_blank" rel="noopener" hidden>Send order on WhatsApp</a>
+    <button id="confirmTrackBtn" class="btn btn-outline" type="button">Track this order</button>
     <button class="btn btn-solid" data-close="confirmModal" style="margin-top:16px;">Done</button>
   </div>
 </div>
@@ -1643,7 +1692,7 @@
     { id:"neem-charcoal", name:"Neem Soap", bestFor:"A purifying, protective daily cleanse; the Neem Soap packaging also highlights healing care.", price:"Rs 500", priceNum:500, color:0x526b4b, imageUrls:["./Products/Neem%20%26%20Charcoal/1.png","./Products/Neem%20%26%20Charcoal/WhatsApp%20Image%202026-10-24%20at%208.23.07%20PM%20(1).jpeg","./Products/Neem%20%26%20Charcoal/WhatsApp%20Image%202026-10-24%20at%208.23.07%20PM%20(2).jpeg"] },
     { id:"coffee", name:"Coffee Soap", bestFor:"Exfoliation for a refreshed feel and brighter-looking skin; these are the benefits highlighted on the packaging.", price:"Rs 600", priceNum:600, color:0x805b3d, imageUrls:["./Products/Coffee/1.png","./Products/Coffee/4.jpeg","./Products/Coffee/WhatsApp%20Image%202026-10-24%20at%208.23.08%20PM%20(1).jpeg"] },
     { id:"rice", name:"Rice Soap", bestFor:"A radiant-looking finish; the packaging describes it as natural radiance for radiant skin.", price:"Rs 550", priceNum:550, color:0xb9b9a2, imageUrls:["./Products/Rice/1.png","./Products/Rice/2.jpeg","./Products/Rice/3.jpeg"] },
-    { id:"sandal", name:"Sandal Soap", bestFor:"A calming, nourishing cleanse that leaves skin feeling soft—the benefits highlighted on the packaging.", price:"Rs 600", priceNum:600, color:0x9b6947, imageUrls:["./Products/Sandal/1.png","./Products/Sandal/1.jpeg","./Products/Sandal/5.jpeg"] }
+    { id:"sandal", name:"Sandal Soap", bestFor:"A calming, nourishing cleanse that leaves skin feeling soft—the benefits highlighted on the packaging.", price:"Rs 600", priceNum:600, color:0x9b6947, imageUrls:["./Products/Sandal/1.png","./Products/Sandal/2.jpeg","./Products/Sandal/5.jpeg"] }
   ];
 
   let selectedIndex = 0;
@@ -1724,7 +1773,7 @@
       if(!product) return;
       const existing = cart.find(item=>item.id===product.id);
       if(existing) existing.qty += 1;
-      else cart.push({ id:product.id, name:product.name, price:product.priceNum, color:product.color, qty:1 });
+      else cart.push({ id:product.id, name:product.name, price:product.priceNum, color:product.color, image:product.imageUrls[0], qty:1 });
       renderCart();
       cartDrawer.classList.add('show');
       cartOverlay.classList.add('show');
@@ -2030,7 +2079,7 @@
   document.querySelectorAll('[data-close]').forEach(btn=>{
     btn.addEventListener('click', ()=> closeModal(btn.dataset.close));
   });
-  ['loginOverlay','checkoutOverlay','confirmOverlay','adminOverlay'].forEach(id=>{
+  ['loginOverlay','checkoutOverlay','confirmOverlay','adminOverlay','trackOverlay'].forEach(id=>{
     document.getElementById(id).addEventListener('click', ()=> closeModal(id.replace('Overlay','Modal')));
   });
 
@@ -2056,7 +2105,7 @@
     } else {
       wrap.innerHTML = cart.map(item=>`
         <div class="cart-item" data-id="${item.id}">
-          <div class="swatch" style="background:#${item.color.toString(16).padStart(6,'0')}"></div>
+          <div class="ci-media" style="background:#${item.color.toString(16).padStart(6,'0')}">${item.image ? `<img class="ci-thumb" src="${item.image}" alt="${item.name}">` : ''}</div>
           <div class="ci-info">
             <div class="ci-name">${item.name}</div>
             <div class="ci-price">Rs ${item.price} × ${item.qty}</div>
@@ -2070,6 +2119,8 @@
         </div>`).join('');
       wrap.querySelectorAll('.cart-item').forEach(el=>{
         const id = el.dataset.id;
+        const thumb = el.querySelector('.ci-thumb');
+        if(thumb) thumb.addEventListener('error', ()=> thumb.remove());
         el.querySelector('.qty-plus').addEventListener('click', ()=>{ changeQty(id, 1); });
         el.querySelector('.qty-minus').addEventListener('click', ()=>{ changeQty(id, -1); });
         el.querySelector('.ci-remove').addEventListener('click', ()=>{ cart = cart.filter(i=>i.id!==id); renderCart(); });
@@ -2143,6 +2194,7 @@
       inn.style.display = 'block';
       document.getElementById('userNameSpan').textContent = currentUser.displayName || 'there';
       document.getElementById('userEmailSpan').textContent = currentUser.email || '';
+      if(document.getElementById('trackModal').classList.contains('show')) renderTrackOrders();
     } else {
       out.style.display = 'block';
       inn.style.display = 'none';
@@ -2169,6 +2221,11 @@
   document.getElementById('checkoutBtn').addEventListener('click', ()=>{
     if(cart.length===0) return;
     closeCart();
+    if(!currentUser){
+      openModal('loginModal');
+      document.getElementById('authStatus').textContent = 'Please sign in with Google to place your order and track it.';
+      return;
+    }
     openModal('checkoutModal');
   });
 
@@ -2196,6 +2253,7 @@
   document.getElementById('checkoutForm').addEventListener('submit', async function(e){
     e.preventDefault();
     const status = document.getElementById('checkoutStatus');
+    if(!currentUser){ status.textContent = 'Please sign in with Google to place your order.'; return; }
     const buyer = document.getElementById('ck-buyer').value.trim();
     const contactName = document.getElementById('ck-contact').value.trim() || buyer;
     const phone = document.getElementById('ck-phone').value.trim();
@@ -2214,11 +2272,14 @@
       number = 'I-' + stamp; synced = false;
     }
 
+    const placedAt = new Date().toISOString();
+    const items = cart.map(i=>({ id:i.id, name:i.name, qty:i.qty, price:i.price, image:i.image || '' }));
     const order = {
-      orderNumber: number, items: cart.map(i=>({name:i.name, qty:i.qty, price:i.price})),
+      orderNumber: number, items,
       subtotal, discount, total, buyerName: buyer, contactName, phone, address,
-      voucherUsed: appliedVoucher, uid: currentUser ? currentUser.uid : null,
-      email: currentUser ? currentUser.email : null, status:'new', createdAt: new Date().toISOString()
+      voucherUsed: appliedVoucher, uid: currentUser.uid,
+      email: currentUser.email, status:'new', createdAt: placedAt,
+      statusHistory: { new: placedAt }
     };
 
     let orderSaved = false;
@@ -2409,11 +2470,11 @@
     }
     select.disabled = true;
     document.getElementById('adminOrdersStatus').textContent = 'Saving order status…';
+    const stamp = firebase.firestore.FieldValue.serverTimestamp();
+    const patch = { status, updatedAt:stamp };
+    patch[`statusHistory.${status}`] = stamp;
     try{
-      await withTimeout(db.collection('orders').doc(select.dataset.orderId).update({
-        status,
-        updatedAt:firebase.firestore.FieldValue.serverTimestamp()
-      }));
+      await withTimeout(db.collection('orders').doc(select.dataset.orderId).update(patch));
       select.dataset.previousStatus = status;
       document.getElementById('adminOrdersStatus').textContent = 'Order status saved.';
     }catch(error){
@@ -2424,6 +2485,208 @@
       select.disabled = false;
     }
   }
+
+  /* ============ ORDER TRACKING ============ */
+  const ORDER_STAGES = [['new','Placed'],['preparing','Preparing'],['shipped','Shipped'],['delivered','Delivered']];
+  const ORDER_STATUS_LABELS = { new:'New', preparing:'Preparing', shipped:'Shipped', delivered:'Delivered', cancelled:'Cancelled' };
+  const ORDER_STATUS_NOTES = {
+    new:'We have your order and will start packing shortly.',
+    preparing:'Your soaps are being packed by hand right now.',
+    shipped:'Your parcel is on its way to the delivery address you gave us.',
+    delivered:'Delivered. We hope they feel as good as they smell.',
+    cancelled:'This order was cancelled. Message us on WhatsApp if that looks wrong.'
+  };
+  let trackUnsubscribe = null;
+
+  function productImageFor(item){
+    const match = products.find(product=>product.id===item.id || product.name===item.name);
+    return match ? match.imageUrls[0] : '';
+  }
+
+  function buildTrackCard(order){
+    const status = ORDER_STATUS_LABELS[order.status] ? order.status : 'new';
+    const history = order.statusHistory || {};
+    const items = Array.isArray(order.items) ? order.items : [];
+    const currentIndex = ORDER_STAGES.findIndex(stage=>stage[0]===status);
+    const placed = toDateValue(history.new) || toDateValue(order.createdAt);
+    const updated = toDateValue(order.updatedAt) || toDateValue(history[status]);
+
+    const card = document.createElement('button');
+    card.type = 'button';
+    card.className = 'track-card';
+    card.setAttribute('aria-expanded','false');
+
+    const row = document.createElement('span');
+    row.className = 'track-row';
+
+    const thumbs = document.createElement('span');
+    thumbs.className = 'track-thumbs';
+    items.slice(0,3).forEach(item=>{
+      const src = item.image || productImageFor(item);
+      if(!src) return;
+      const thumb = document.createElement('img');
+      thumb.className = 'track-thumb';
+      thumb.alt = '';
+      thumb.src = src;
+      thumb.addEventListener('error', ()=> thumb.remove());
+      thumbs.append(thumb);
+    });
+    if(items.length > 3){
+      const more = document.createElement('span');
+      more.className = 'track-more';
+      more.textContent = `+${items.length-3}`;
+      thumbs.append(more);
+    }
+
+    const rowText = document.createElement('span');
+    rowText.className = 'track-rowtext';
+    const number = document.createElement('span');
+    number.className = 'track-order';
+    number.textContent = order.orderNumber || 'Order';
+    const meta = document.createElement('span');
+    meta.className = 'track-meta';
+    const bars = items.reduce((sum,item)=>sum+(Number(item.qty)||1), 0);
+    meta.textContent = [
+      bars ? `${bars} ${bars===1 ? 'bar' : 'bars'}` : '',
+      `Rs ${(Number(order.total)||0).toLocaleString('en-PK')}`,
+      placed ? `placed ${formatTrackDate(placed)}` : ''
+    ].filter(Boolean).join(' · ');
+    rowText.append(number, meta);
+
+    const badge = document.createElement('span');
+    badge.className = 'track-badge' + (status==='delivered' ? ' is-delivered' : status==='cancelled' ? ' is-cancelled' : '');
+    badge.textContent = ORDER_STATUS_LABELS[status];
+    row.append(thumbs, rowText, badge);
+
+    const detail = document.createElement('span');
+    detail.className = 'track-detail';
+    if(status === 'cancelled'){
+      const note = document.createElement('span');
+      note.className = 'track-note';
+      note.textContent = ORDER_STATUS_NOTES.cancelled + (updated ? ` (on ${formatTrackLongDate(updated)})` : '');
+      detail.append(note);
+    } else {
+      const steps = document.createElement('span');
+      steps.className = 'track-steps';
+      const fill = document.createElement('span');
+      fill.className = 'track-fill';
+      fill.style.width = `${(currentIndex/(ORDER_STAGES.length-1))*80}%`;
+      steps.append(fill);
+      ORDER_STAGES.forEach(([key,label],index)=>{
+        const step = document.createElement('span');
+        step.className = 'track-step' + (index < currentIndex ? ' done' : index === currentIndex ? ' current' : '');
+        step.textContent = label;
+        const when = toDateValue(history[key]) || (key==='new' ? placed : null);
+        if(when && index <= currentIndex){
+          const time = document.createElement('time');
+          time.dateTime = when.toISOString();
+          time.textContent = formatTrackDate(when);
+          step.append(time);
+        }
+        steps.append(step);
+      });
+      detail.append(steps);
+      const note = document.createElement('span');
+      note.className = 'track-note';
+      note.textContent = ORDER_STATUS_NOTES[status] +
+        (updated && status !== 'new' ? ` · updated ${formatTrackLongDate(updated)}` : '');
+      detail.append(note);
+    }
+    if(items.length){
+      const list = document.createElement('span');
+      list.className = 'track-items';
+      items.forEach(item=>{
+        const chip = document.createElement('span');
+        chip.textContent = `${Number(item.qty)||1} × ${item.name || 'Product'}`;
+        list.append(chip);
+      });
+      detail.append(list);
+    }
+
+    card.append(row, detail);
+    card.addEventListener('click', ()=>{
+      card.setAttribute('aria-expanded', card.getAttribute('aria-expanded')==='true' ? 'false' : 'true');
+    });
+    return card;
+  }
+
+  function toDateValue(value){
+    if(!value) return null;
+    if(typeof value.toDate === 'function') return value.toDate();
+    const stamp = typeof value === 'object' ? value.seconds*1000 : value;
+    const date = new Date(stamp);
+    return Number.isNaN(date.getTime()) ? null : date;
+  }
+
+  function formatTrackDate(date){
+    if(!date) return '';
+    const now = new Date();
+    return date.toDateString() === now.toDateString()
+      ? date.toLocaleTimeString('en-PK',{ hour:'2-digit', minute:'2-digit' })
+      : date.toLocaleDateString('en-GB',{ day:'2-digit', month:'short' });
+  }
+
+  function formatTrackLongDate(date){
+    return date ? date.toLocaleString('en-GB',{ day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' }) : '';
+  }
+
+  function stopTrackListen(){
+    if(trackUnsubscribe){ trackUnsubscribe(); trackUnsubscribe = null; }
+  }
+
+  function renderTrackOrders(){
+    const list = document.getElementById('trackOrderList');
+    const statusEl = document.getElementById('trackStatus');
+    const signedOut = document.getElementById('trackSignedOut');
+    const signedIn = document.getElementById('trackSignedIn');
+    stopTrackListen();
+    list.replaceChildren();
+    if(!fbEnabled){
+      signedOut.style.display = 'none';
+      signedIn.style.display = 'block';
+      statusEl.textContent = 'The store database is offline right now, so orders cannot be loaded. Message us on WhatsApp for an update.';
+      return;
+    }
+    if(!currentUser){
+      signedIn.style.display = 'none';
+      signedOut.style.display = 'block';
+      return;
+    }
+    signedOut.style.display = 'none';
+    signedIn.style.display = 'block';
+    statusEl.textContent = 'Loading your orders…';
+    trackUnsubscribe = db.collection('orders').where('uid','==',currentUser.uid).onSnapshot(snap=>{
+      const rows = [];
+      snap.forEach(doc=>rows.push(doc.data()));
+      if(!rows.length){
+        statusEl.textContent = 'No orders from this account yet. Anything you order will appear here automatically.';
+        return;
+      }
+      rows.sort((a,b)=>{
+        const x = toDateValue(a.createdAt), y = toDateValue(b.createdAt);
+        return (y ? y.getTime() : 0) - (x ? x.getTime() : 0);
+      });
+      statusEl.textContent = 'Tap an order to see its progress.';
+      list.replaceChildren(...rows.map(row=>buildTrackCard(row)));
+    }, error=>{
+      console.error('Unable to load this customer’s orders for tracking.', error);
+      statusEl.textContent = 'We could not load your orders. Check the Firestore rules and your connection, then reopen tracking.';
+    });
+  }
+
+  document.getElementById('trackBtn').addEventListener('click', ()=>{
+    openModal('trackModal');
+    renderTrackOrders();
+  });
+  document.getElementById('trackGoogleSignIn').addEventListener('click', ()=>{
+    signIn(new firebase.auth.GoogleAuthProvider(), 'trackAuthStatus');
+  });
+  document.getElementById('confirmTrackBtn').addEventListener('click', ()=>{
+    closeModal('confirmModal');
+    openModal('trackModal');
+    renderTrackOrders();
+  });
+  document.querySelectorAll('[data-close="trackModal"]').forEach(btn=>btn.addEventListener('click', stopTrackListen));
 
   window.addEventListener('load', function(){
     const start = ()=>{ renderHeroPhotos(); renderProducts(); renderCart(); activateStoreInteractions(); };
