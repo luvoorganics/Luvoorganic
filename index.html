@@ -914,6 +914,174 @@
     .catalog-info h3{font-size:1.25rem}
     .catalog-info p{font-size:.78rem;min-height:0}
   }
+
+  /* ============ LAUNCH WASH GAME ============ */
+  .wash-teaser{
+    display:flex;align-items:center;gap:13px;margin-top:22px;padding:11px 17px 11px 12px;max-width:460px;
+    border:1px solid rgba(49,88,67,.24);border-radius:99px;cursor:pointer;text-align:left;
+    background:rgba(255,255,255,.56);backdrop-filter:blur(8px);color:#26352b;
+    font:500 .79rem/1.35 'Work Sans',sans-serif;
+    box-shadow:0 10px 26px rgba(38,66,42,.09);
+    transition:transform .22s ease,box-shadow .22s ease,background .22s ease;
+  }
+  .wash-teaser:hover{transform:translateY(-2px);background:#fff;box-shadow:0 16px 34px rgba(38,66,42,.15)}
+  .wash-teaser strong{color:#315843}
+  .wash-teaser-dot{
+    position:relative;flex:0 0 auto;width:32px;height:32px;border-radius:50%;overflow:hidden;
+    background:radial-gradient(circle at 30% 26%,#fff,rgba(255,255,255,.5) 40%,rgba(177,203,168,.55));
+    border:1px solid rgba(255,255,255,.92);box-shadow:inset 0 -5px 10px rgba(94,130,84,.22)
+  }
+  .wash-teaser-dot::after{
+    content:'';position:absolute;left:5px;top:6px;width:8px;height:8px;border-radius:50%;
+    background:rgba(255,255,255,.95);box-shadow:11px 8px 0 -2px rgba(255,255,255,.8);
+    animation:washBob 3.4s ease-in-out infinite
+  }
+  .wash-teaser-arrow{margin-left:auto;flex:0 0 auto;color:#526b4e;font-size:1rem}
+  @keyframes washBob{0%,100%{transform:translate(0,0)}50%{transform:translate(8px,-7px)}}
+
+  .wash-fab{
+    position:fixed;z-index:85;right:18px;bottom:20px;display:inline-flex;align-items:center;gap:10px;
+    padding:10px 16px 10px 11px;border-radius:99px;cursor:pointer;border:1px solid rgba(255,255,255,.72);
+    background:rgba(249,246,237,.88);backdrop-filter:blur(12px) saturate(120%);color:#26352b;
+    font:600 .72rem/1.1 'Work Sans',sans-serif;letter-spacing:.02em;text-align:left;
+    box-shadow:0 16px 38px rgba(25,58,43,.22);
+    opacity:0;transform:translateY(16px);pointer-events:none;
+    transition:opacity .35s ease,transform .35s ease,background .2s ease;
+  }
+  .wash-fab.is-visible{opacity:1;transform:none;pointer-events:auto}
+  .wash-fab:hover{background:#fff}
+  .wash-fab em{display:block;font-style:normal;font-weight:500;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#637b54}
+  .wash-fab b{display:block;font-size:.86rem;color:#315843;font-family:'Fraunces',serif;font-weight:500;letter-spacing:0}
+  .wash-fab-bubble{
+    flex:0 0 auto;width:26px;height:26px;border-radius:50%;
+    background:radial-gradient(circle at 30% 28%,#fff 12%,rgba(196,216,183,.85) 58%,rgba(122,151,110,.5));
+    box-shadow:inset 0 -3px 8px rgba(49,88,67,.22),0 4px 10px rgba(49,88,67,.18);
+    animation:washFloat 4.2s ease-in-out infinite
+  }
+  @keyframes washFloat{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-5px) rotate(6deg)}}
+  .overlay.show ~ .wash-fab,#cartDrawer.show ~ .wash-fab{opacity:0;transform:translateY(12px);pointer-events:none}
+
+  .cart-wash-hint{
+    display:block;width:100%;margin-top:11px;padding:10px 12px;cursor:pointer;text-align:center;
+    border:1px dashed rgba(49,88,67,.42);border-radius:12px;background:rgba(113,132,95,.11);
+    color:#315843;font:600 .74rem/1.4 'Work Sans',sans-serif;
+    transition:background .2s ease,border-color .2s ease
+  }
+  .cart-wash-hint:hover{background:rgba(113,132,95,.2);border-color:#315843}
+  .cart-wash-hint[hidden]{display:none}
+
+  .wash-modal{width:min(620px,94vw);padding:clamp(20px,3.2vw,30px);border-radius:26px;max-height:92vh}
+  .wash-modal h3{font-size:clamp(1.15rem,2.6vw,1.45rem);margin-bottom:6px}
+  .wash-eyebrow{font:600 .62rem/1 'Work Sans',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#637b54;margin-bottom:9px}
+  .wash-subs{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 14px}
+  .wash-sub{
+    display:inline-flex;align-items:center;gap:7px;padding:6px 11px 6px 6px;border-radius:99px;cursor:pointer;
+    border:1px solid rgba(43,63,46,.16);background:rgba(255,255,255,.62);color:#26352b;
+    font:600 .7rem/1 'Work Sans',sans-serif;transition:border-color .2s ease,background .2s ease,box-shadow .2s ease,color .2s ease
+  }
+  .wash-sub img{width:24px;height:24px;border-radius:7px;object-fit:cover;background:#e9e4d9}
+  .wash-sub[aria-pressed="true"]{border-color:#315843;background:#fff;color:#315843;box-shadow:0 6px 16px rgba(38,66,42,.13)}
+  .wash-sub:focus-visible,.wash-stage:focus-visible,.wash-teaser:focus-visible,.wash-fab:focus-visible{outline:2px solid #315843;outline-offset:3px}
+  .wash-code-chip{
+    display:none;align-items:center;gap:9px;margin:-2px 0 12px;padding:9px 13px;border-radius:12px;
+    background:rgba(181,154,104,.14);border:1px solid rgba(181,154,104,.4);color:#26352b
+  }
+  .wash-modal.is-won .wash-code-chip{display:inline-flex}
+  .wash-code-chip b{font:1.05rem/1 'Fraunces',serif;color:#8a6f3f;-webkit-user-select:all;user-select:all}
+
+  .wash-stage{
+    position:relative;border-radius:20px;overflow:hidden;touch-action:none;cursor:none;aspect-ratio:16/10;
+    -webkit-user-select:none;user-select:none;-webkit-touch-callout:none;
+    background:radial-gradient(ellipse at 50% 18%,#fffdf6,#f3f0e3 58%,#e3e5d4 100%);
+    border:1px solid rgba(255,255,255,.85);
+    box-shadow:inset 0 1px rgba(255,255,255,.9),0 18px 42px rgba(38,53,43,.11)
+  }
+  .wash-stage.is-dragging{cursor:none}
+  .wash-layer{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .wash-grime{transition:opacity .8s ease,filter .8s ease}
+  .wash-foam{pointer-events:none}
+  .wash-stage.is-rinsing .wash-grime{opacity:0;filter:blur(7px)}
+
+  .wash-prize{
+    position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:clamp(4px,1.4vh,9px);
+    text-align:center;padding:7% 6%;transition:filter .4s ease;filter:blur(6px);opacity:1
+  }
+  .wash-prize-brand{font:600 .58rem/1 'Work Sans',sans-serif;letter-spacing:.36em;text-transform:uppercase;color:#71845e}
+  .wash-prize-off{
+    font:500 clamp(1rem,3.2vw,1.35rem)/1 'Fraunces',serif;color:#9d7f45;letter-spacing:.02em
+  }
+  .wash-code{
+    font:500 clamp(3rem,12vw,4.8rem)/1 'Fraunces',serif;letter-spacing:-.015em;color:#1d3527;
+    text-shadow:0 1px 0 rgba(255,255,255,.9)
+  }
+  .wash-prize-soap{font:500 .68rem/1 'Work Sans',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(38,53,43,.6)}
+  .wash-prize-rule{width:44%;height:1px;background:rgba(43,63,46,.2);margin:2px auto}
+  .wash-modal.is-won .wash-prize{filter:none;opacity:1}
+  .wash-modal.is-won .wash-code{animation:washPop .6s cubic-bezier(.2,1.3,.4,1) both}
+  @keyframes washPop{0%{transform:scale(.86)}60%{transform:scale(1.045)}100%{transform:scale(1)}}
+  .wash-modal.is-won .wash-prize::after{
+    content:'';position:absolute;inset:-30% -55%;pointer-events:none;
+    background:linear-gradient(102deg,transparent 36%,rgba(255,255,255,.8) 50%,transparent 64%);
+    animation:washShine 1.5s ease .2s 1 forwards
+  }
+  @keyframes washShine{0%{transform:translateX(-115%)}100%{transform:translateX(215%)}}
+
+  .wash-bar{
+    position:absolute;left:0;top:0;width:94px;height:54px;margin-top:0;border-radius:15px;opacity:0;
+    pointer-events:none;will-change:transform;
+    background:linear-gradient(152deg,var(--wash-soap-light,#a8c199),var(--wash-soap-dark,#4c6a49));
+    box-shadow:0 14px 24px rgba(25,44,26,.3),inset 0 2px rgba(255,255,255,.6),inset 0 -7px 13px rgba(0,0,0,.16);
+    transition:opacity .25s ease
+  }
+  .wash-bar::after{
+    content:'';position:absolute;left:50%;top:50%;width:38%;height:9px;transform:translate(-50%,-50%);
+    border-radius:99px;background:rgba(255,255,255,.42);box-shadow:0 1px 2px rgba(0,0,0,.12)
+  }
+  .wash-bar.is-active{opacity:1}
+  @media(pointer:coarse){.wash-bar{margin-top:-58px}}
+
+  .wash-hint{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:10px;
+    padding:10px 16px;border-radius:99px;background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.9);
+    color:#315843;font:600 .72rem/1 'Work Sans',sans-serif;letter-spacing:.04em;pointer-events:none;
+    box-shadow:0 10px 24px rgba(38,66,42,.14);transition:opacity .3s ease,transform .3s ease
+  }
+  .wash-hint[hidden]{display:none}
+  .wash-stage.is-touched .wash-hint{opacity:0;transform:translate(-50%,-140%) scale(.94)}
+  .wash-hint i{width:9px;height:9px;border-radius:50%;background:#71845f;animation:washPulse 1.6s ease-in-out infinite}
+  @keyframes washPulse{0%,100%{box-shadow:0 0 0 0 rgba(113,132,95,.5)}50%{box-shadow:0 0 0 9px rgba(113,132,95,0)}}
+
+  .wash-meter{display:flex;align-items:center;gap:12px;margin-top:13px}
+  .wash-meter-track{flex:1;height:6px;border-radius:99px;background:rgba(43,63,46,.12);overflow:hidden}
+  .wash-meter-fill{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#71845f,#315843);transition:width .22s ease}
+  .wash-meter-num{flex:0 0 auto;min-width:96px;text-align:right;font:600 .7rem/1 'Work Sans',sans-serif;color:#526b4e}
+  .wash-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:13px}
+  .wash-note{flex:1;min-width:180px;font:500 .76rem/1.5 'Work Sans',sans-serif;color:rgba(38,53,43,.7)}
+  .wash-link{border:0;background:none;padding:4px 0;cursor:pointer;color:#315843;font:600 .72rem/1 'Work Sans',sans-serif;text-decoration:underline dotted;text-underline-offset:4px}
+  .wash-link:hover{color:#526b4e}
+  .wash-win{display:none;gap:10px;margin-top:16px}
+  .wash-modal.is-won .wash-win{display:flex;flex-wrap:wrap}
+  .wash-win .btn{flex:1;min-width:150px}
+  body.wash-entries-off .wash-teaser,
+  body.wash-entries-off .wash-fab,
+  body.wash-entries-off .cart-wash-hint{display:none}
+  @media(max-width:620px){
+    .wash-modal{padding:18px 15px;border-radius:22px}
+    .wash-stage{aspect-ratio:5/4;border-radius:16px}
+    .wash-code{font-size:clamp(2.7rem,15vw,3.7rem)}
+    .wash-prize-brand{font-size:.5rem;letter-spacing:.28em}
+    .wash-teaser{font-size:.71rem;padding:9px 13px;gap:10px}
+    .wash-teaser-dot{width:27px;height:27px}
+    .wash-fab{right:12px;bottom:14px;padding:8px 13px 8px 9px;gap:8px}
+    .wash-fab-bubble{width:22px;height:22px}
+    .wash-meter-num{min-width:80px}
+    .wash-bar{width:74px;height:44px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .wash-teaser-dot::after,.wash-fab-bubble,.wash-hint i,.wash-modal.is-won .wash-code{animation:none}
+    .wash-modal.is-won .wash-prize::after{display:none}
+    .wash-grime,.wash-prize,.wash-meter-fill{transition:none}
+  }
 </style>
 </head>
 <body>
@@ -944,7 +1112,6 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8.5h14l1 12H4l1-12Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
       <span id="cartCount" class="cart-count">0</span>
     </button>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span class="menu-glyph"></span></button>
   </div>
 </header>
 
@@ -958,6 +1125,11 @@
       <a href="#products" class="btn btn-solid">Shop collection</a>
       <a href="#story" class="btn btn-outline">Our story&nbsp; ↓</a>
     </div>
+    <button class="wash-teaser" id="washTeaser" type="button" aria-label="Play the launch wash game to reveal a 20% off code">
+      <span class="wash-teaser-dot" aria-hidden="true"></span>
+      <span id="washTeaserText">Launch offer: a 20% code is caked in dust — <strong>wash it clean to reveal it</strong></span>
+      <span class="wash-teaser-arrow" aria-hidden="true">→</span>
+    </button>
   </div>
   <div class="hero-visual">
     <div class="hero-photo-stage" aria-label="Luvo Organics soap photo gallery">
@@ -1132,6 +1304,7 @@
       <button id="applyVoucher" class="btn btn-outline" style="padding:12px 16px;">Apply</button>
     </div>
     <div id="voucherStatus" class="form-status"></div>
+    <button type="button" id="cartWashHint" class="cart-wash-hint">No code yet? Wash a bar to reveal your launch code</button>
   </div>
   <div class="cart-summary">
     <div class="cart-row"><span>Subtotal</span><span id="cartSubtotal">Rs 0</span></div>
@@ -1244,6 +1417,48 @@
   <p>&copy; 2026 Luvo Organics. Handcrafted by Kainat Abdullah. All rights reserved.</p>
 </footer>
 
+<!-- LAUNCH WASH GAME -->
+<div id="washOverlay" class="overlay"></div>
+<div id="washModal" class="modal wash-modal" role="dialog" aria-modal="true" aria-labelledby="washTitle">
+  <button class="icon-btn modal-close" data-close="washModal" aria-label="Close">✕</button>
+  <div class="wash-eyebrow">Launch treat</div>
+  <h3 id="washTitle">Scrub the dust off your soap label</h3>
+  <p class="modal-sub" id="washHint">Press and drag across the label to lather. Clean enough and the launch code appears.</p>
+  <div class="wash-code-chip" id="washCodeChip">Your code <b>1Luvo</b> · 20% off</div>
+  <div class="wash-subs" id="washSubs" role="group" aria-label="Choose a soap to wash with"></div>
+  <div class="wash-stage" id="washStage">
+    <div class="wash-prize" id="washPrize" aria-hidden="true">
+      <span class="wash-prize-brand">Luvo Organics</span>
+      <span class="wash-prize-off">20% off your first order</span>
+      <span class="wash-prize-rule"></span>
+      <span class="wash-code">1Luvo</span>
+      <span class="wash-prize-soap" id="washPrizeSoap">Handmade bar</span>
+    </div>
+    <canvas class="wash-layer wash-grime" id="washGrime"></canvas>
+    <canvas class="wash-layer wash-foam" id="washFoam"></canvas>
+    <div class="wash-hint" id="washDragHint"><i></i>Press &amp; drag to wash</div>
+    <div class="wash-bar" id="washBar" aria-hidden="true"></div>
+  </div>
+  <div class="wash-meter">
+    <div class="wash-meter-track"><i class="wash-meter-fill" id="washMeterFill"></i></div>
+    <div class="wash-meter-num" id="washMeterNum">0% clean</div>
+  </div>
+  <div class="wash-win">
+    <button type="button" id="washCopy" class="btn btn-outline">Copy code</button>
+    <button type="button" id="washUse" class="btn btn-solid">Use code in cart</button>
+  </div>
+  <div class="wash-foot">
+    <p class="wash-note" id="washNote">One code per account, applied at checkout.</p>
+    <div>
+      <button type="button" class="wash-link" id="washReplay">Wash another bar</button>
+    </div>
+  </div>
+</div>
+<button type="button" id="washFab" class="wash-fab" aria-label="Play the launch wash game for a 20% off code">
+  <span class="wash-fab-bubble" aria-hidden="true"></span>
+  <span><em id="washFabEyebrow">Launch offer</em><b id="washFabMain">Wash to unlock 20%</b></span>
+</button>
+
 <script>
   /* ---------- Firebase Configuration ---------- */
  const firebaseConfig = {
@@ -1297,18 +1512,6 @@
       { count: firebase.firestore.FieldValue.increment(1) }, { merge:true }
     ).catch(error=>console.error('Unable to record this page view in Firebase.', error));
   }
-
-  /* ---------- Mobile nav ---------- */
-  const navToggle = document.getElementById('navToggle');
-  const siteNav = document.getElementById('siteNav');
-  navToggle.addEventListener('click', ()=>{
-    const open = siteNav.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', String(open));
-  });
-  siteNav.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
-    siteNav.classList.remove('open');
-    navToggle.setAttribute('aria-expanded','false');
-  }));
 
   /* ---------- Contact form -> WhatsApp ---------- */
   const WHATSAPP_NUMBER = "923000000000";
@@ -2153,8 +2356,8 @@
       status.textContent = "Checking…";
       try{
         const doc = await withTimeout(db.collection('usedVouchers').doc(currentUser.uid).get());
-        if(doc.exists){
-          status.textContent = "This voucher has already been used on your account.";
+        if(doc.exists && doc.data().used === true){
+          status.textContent = "This code was already used on your first order.";
           return;
         }
       }catch(error){
@@ -2205,6 +2408,7 @@
       document.getElementById('adminPanelView').style.display = 'none';
       document.getElementById('adminLoginView').style.display = 'block';
     }
+    if(typeof window.washRefreshEntries === 'function') window.washRefreshEntries();
   }
 
   function isStoreAdmin(user=currentUser){
@@ -2290,6 +2494,16 @@
       }catch(error){
         console.error('Unable to save the order to Firebase.', error);
         synced = false;
+      }
+      if(orderSaved && appliedVoucher){
+        try{
+          await withTimeout(db.collection('usedVouchers').doc(currentUser.uid).set(
+            { used: true, code: VOUCHER_CODE, orderNumber: number, usedAt: placedAt }, { merge: true }
+          ));
+          if(typeof window.washSetEntries === 'function' && !isStoreAdmin()) window.washSetEntries(true);
+        }catch(error){
+          console.error('Unable to mark this launch code as used on this account.', error);
+        }
       }
     }
 
@@ -2688,11 +2902,502 @@
   });
   document.querySelectorAll('[data-close="trackModal"]').forEach(btn=>btn.addEventListener('click', stopTrackListen));
 
-  window.addEventListener('load', function(){
-    const start = ()=>{ renderHeroPhotos(); renderProducts(); renderCart(); activateStoreInteractions(); };
-    if(document.fonts && document.fonts.ready){ document.fonts.ready.then(start); }
-    else { start(); }
+  /* ============ LAUNCH WASH GAME ============ */
+  const washEl = {
+    modal: document.getElementById('washModal'),
+    overlay: document.getElementById('washOverlay'),
+    stage: document.getElementById('washStage'),
+    grime: document.getElementById('washGrime'),
+    foam: document.getElementById('washFoam'),
+    prize: document.getElementById('washPrize'),
+    bar: document.getElementById('washBar'),
+    hint: document.getElementById('washDragHint'),
+    fill: document.getElementById('washMeterFill'),
+    num: document.getElementById('washMeterNum'),
+    msg: document.getElementById('washHint'),
+    subs: document.getElementById('washSubs'),
+    soapLabel: document.getElementById('washPrizeSoap'),
+    replay: document.getElementById('washReplay'),
+    copy: document.getElementById('washCopy'),
+    use: document.getElementById('washUse'),
+    fab: document.getElementById('washFab'),
+    fabEyebrow: document.getElementById('washFabEyebrow'),
+    fabMain: document.getElementById('washFabMain'),
+    teaser: document.getElementById('washTeaser'),
+    teaserText: document.getElementById('washTeaserText'),
+    cartHint: document.getElementById('cartWashHint')
+  };
+  const WASH_NEED = 0.93;
+  const WASH_STORE = 'luvoLaunchWashed';
+  const WASH_MSGS = [
+    [0, 'Press and drag across the label to lather. Keep washing till it is spotless.'],
+    [.25, 'The dust is lifting — something is printed under here.'],
+    [.55, 'Keep going, those look like letters.'],
+    [.8, 'Nearly spotless. A few more scrubs.']
+  ];
+  const gctx = washEl.grime.getContext('2d');
+  const fctx = washEl.foam.getContext('2d');
+  const sCan = document.createElement('canvas');
+  sCan.width = 52; sCan.height = 34;
+  const sCtx = sCan.getContext('2d', { willReadFrequently: true });
+  const holdCan = document.createElement('canvas');
+  const wash = {
+    dpr: 1, w: 0, h: 0, r: 40, barW: 94, barH: 54,
+    clean: 0, won: false, open: false, dragging: false, painted: false,
+    raf: 0, last: null, px: 0, py: 0, bx: 0, by: 0, tilt: 0,
+    bubbles: [], dirty: false, nextSample: 0, tier: -1, fabSeen: false, hidden: false
+  };
+  let washEraser = null, washSuds = null, washBubble = null, washGrit = null, washSoap = null;
+
+  function washCanvasSprite(size, paint){
+    const c = document.createElement('canvas');
+    c.width = c.height = size;
+    paint(c.getContext('2d'), size);
+    return c;
+  }
+  function washMakeSprites(){
+    if(!washEraser){
+      washEraser = washCanvasSprite(128, (c, s) => {
+        const g = c.createRadialGradient(s/2, s/2, 0, s/2, s/2, s/2);
+        g.addColorStop(0, 'rgba(0,0,0,1)');
+        g.addColorStop(.55, 'rgba(0,0,0,.94)');
+        g.addColorStop(.82, 'rgba(0,0,0,.42)');
+        g.addColorStop(1, 'rgba(0,0,0,0)');
+        c.fillStyle = g; c.fillRect(0, 0, s, s);
+      });
+      washBubble = washCanvasSprite(64, (c, s) => {
+        c.strokeStyle = 'rgba(255,255,255,.85)'; c.lineWidth = 2.4;
+        c.beginPath(); c.arc(s/2, s/2, 20, 0, Math.PI*2); c.stroke();
+        c.fillStyle = 'rgba(255,255,255,.2)';
+        c.beginPath(); c.arc(s/2, s/2, 20, 0, Math.PI*2); c.fill();
+        c.fillStyle = 'rgba(255,255,255,.92)';
+        c.beginPath(); c.arc(24, 22, 4.5, 0, Math.PI*2); c.fill();
+      });
+      washGrit = washCanvasSprite(150, (c, s) => {
+        const d = c.createImageData(s, s);
+        for(let i = 0; i < d.data.length; i += 4){
+          const v = Math.random() < .48 ? 34 : 226;
+          d.data[i] = d.data[i+1] = d.data[i+2] = v;
+          d.data[i+3] = Math.random() * 42;
+        }
+        c.putImageData(d, 0, 0);
+      });
+    }
+    washSuds = washCanvasSprite(76, (c, s) => {
+      const tint = washSoap ? washMix(washHex(washSoap.color), [255, 255, 255], .68) : [255, 255, 255];
+      const rgb = tint.join(',');
+      const g = c.createRadialGradient(s/2, s/2, 0, s/2, s/2, s/2);
+      g.addColorStop(0, `rgba(${rgb},.9)`);
+      g.addColorStop(.4, `rgba(${rgb},.6)`);
+      g.addColorStop(.74, `rgba(${rgb},.2)`);
+      g.addColorStop(1, `rgba(${rgb},0)`);
+      c.fillStyle = g; c.fillRect(0, 0, s, s);
+    });
+  }
+  function washHex(n){ return [(n >> 16) & 255, (n >> 8) & 255, n & 255]; }
+  function washMix(a, b, t){ return a.map((v, i) => Math.round(v + (b[i] - v) * t)); }
+  function washRgb(a){ return `rgb(${a.join(',')})`; }
+
+  function washPaintGrime(){
+    const w = wash.w, h = wash.h;
+    if(!w || !h) return;
+    wash.painted = false;
+    gctx.globalCompositeOperation = 'source-over';
+    gctx.globalAlpha = 1;
+    gctx.clearRect(0, 0, w, h);
+    const base = gctx.createLinearGradient(0, 0, w, h);
+    base.addColorStop(0, '#6c5b3e');
+    base.addColorStop(.38, '#82704d');
+    base.addColorStop(.68, '#5f5036');
+    base.addColorStop(1, '#786446');
+    gctx.fillStyle = base;
+    gctx.fillRect(0, 0, w, h);
+
+    for(let i = 0; i < 160; i++){
+      const x = Math.random() * w, y = Math.random() * h;
+      const rr = (.05 + Math.random() * .19) * w;
+      const dark = Math.random() < .58;
+      const tone = dark ? '52,42,27' : '163,146,112';
+      const a = .12 + Math.random() * .3;
+      const g = gctx.createRadialGradient(x, y, 0, x, y, rr);
+      g.addColorStop(0, `rgba(${tone},${a})`);
+      g.addColorStop(1, `rgba(${tone},0)`);
+      gctx.fillStyle = g;
+      gctx.beginPath(); gctx.arc(x, y, rr, 0, Math.PI*2); gctx.fill();
+    }
+
+    for(let i = 0; i < 30; i++){
+      const x = Math.random() * w, y = Math.random() * h;
+      const len = (.12 + Math.random() * .3) * w;
+      gctx.save();
+      gctx.translate(x, y);
+      gctx.rotate(Math.random() * Math.PI);
+      gctx.scale(1, .12 + Math.random() * .12);
+      const g2 = gctx.createRadialGradient(0, 0, 0, 0, 0, len);
+      g2.addColorStop(0, `rgba(38,30,19,${.16 + Math.random() * .16})`);
+      g2.addColorStop(1, 'rgba(38,30,19,0)');
+      gctx.fillStyle = g2;
+      gctx.beginPath(); gctx.arc(0, 0, len, 0, Math.PI*2); gctx.fill();
+      gctx.restore();
+    }
+
+    for(let i = 0; i < Math.round(w * h / 260); i++){
+      const x = Math.random() * w, y = Math.random() * h;
+      const s = .6 + Math.random() * 1.9;
+      const dark = Math.random() < .55;
+      gctx.fillStyle = dark ? `rgba(34,27,16,${.2 + Math.random() * .5})` : `rgba(226,214,186,${.16 + Math.random() * .4})`;
+      gctx.fillRect(x, y, s, s);
+    }
+
+    gctx.globalAlpha = .6;
+    gctx.fillStyle = gctx.createPattern(washGrit, 'repeat');
+    gctx.fillRect(0, 0, w, h);
+    gctx.globalAlpha = 1;
+
+    const vig = gctx.createRadialGradient(w/2, h/2, Math.min(w, h) * .22, w/2, h/2, Math.max(w, h) * .78);
+    vig.addColorStop(0, 'rgba(28,22,12,0)');
+    vig.addColorStop(1, 'rgba(28,22,12,.5)');
+    gctx.fillStyle = vig;
+    gctx.fillRect(0, 0, w, h);
+    wash.painted = true;
+  }
+
+  function washErase(x, y, r, alpha){
+    gctx.globalCompositeOperation = 'destination-out';
+    gctx.globalAlpha = alpha;
+    gctx.drawImage(washEraser, x - r, y - r, r*2, r*2);
+    gctx.globalAlpha = 1;
+    gctx.globalCompositeOperation = 'source-over';
+  }
+  function washFoamAt(x, y, r, alpha){
+    fctx.globalAlpha = alpha;
+    fctx.drawImage(washSuds, x - r, y - r, r*2, r*2);
+    fctx.globalAlpha = 1;
+  }
+  function washBubbleAt(x, y, r, up){
+    if(wash.bubbles.length > 110) wash.bubbles.shift();
+    wash.bubbles.push({
+      x, y, r, vx: (Math.random()-.5)*.7, vy: -(up ? 1.1 + Math.random()*1.4 : .2 + Math.random()*.5),
+      life: 34 + Math.random()*44, max: 78
+    });
+  }
+
+  function washStroke(a, b){
+    const dx = b.x - a.x, dy = b.y - a.y;
+    const dist = Math.hypot(dx, dy);
+    const r = wash.r;
+    const step = Math.max(3, r * .28);
+    const n = Math.max(1, Math.ceil(dist / step));
+    for(let i = 1; i <= n; i++){
+      const x = a.x + dx * i / n, y = a.y + dy * i / n;
+      const rr = r * (.9 + Math.random() * .22);
+      washErase(x, y, rr, .72);
+      washErase(x + (Math.random()-.5) * rr * .6, y + (Math.random()-.5) * rr * .6, rr * .55, .4);
+      washFoamAt(x, y, rr * .88, .4);
+    }
+    if(Math.random() < Math.min(.9, dist / 26)) washBubbleAt(b.x, b.y, 3 + Math.random() * 5.5, false);
+    wash.dirty = true;
+    washEl.stage.classList.add('is-touched');
+  }
+
+  function washMeasure(){
+    if(!wash.painted) return;
+    sCtx.clearRect(0, 0, sCan.width, sCan.height);
+    sCtx.drawImage(washEl.grime, 0, 0, sCan.width, sCan.height);
+    const d = sCtx.getImageData(0, 0, sCan.width, sCan.height).data;
+    let sum = 0;
+    for(let i = 3; i < d.length; i += 4) sum += 255 - d[i];
+    wash.clean = Math.max(wash.clean, sum / (sCan.width * sCan.height * 255));
+    wash.dirty = false;
+    washShowProgress();
+  }
+
+  function washShowProgress(){
+    const p = Math.min(1, wash.clean / WASH_NEED);
+    washEl.fill.style.width = (p * 100).toFixed(1) + '%';
+    washEl.num.textContent = Math.round(p * 100) + '% clean';
+    if(wash.won) return;
+    let tier = 0;
+    for(let i = 0; i < WASH_MSGS.length; i++) if(p >= WASH_MSGS[i][0]) tier = i;
+    if(tier !== wash.tier){ wash.tier = tier; washEl.msg.textContent = WASH_MSGS[tier][1]; }
+    if(wash.clean >= WASH_NEED) washWin();
+  }
+
+  function washLoop(){
+    if(!wash.open){ wash.raf = 0; return; }
+    wash.raf = requestAnimationFrame(washLoop);
+
+    fctx.globalCompositeOperation = 'destination-out';
+    fctx.fillStyle = `rgba(0,0,0,${wash.won ? .05 : .022})`;
+    fctx.fillRect(0, 0, wash.w, wash.h);
+    fctx.globalCompositeOperation = 'source-over';
+    for(let i = wash.bubbles.length - 1; i >= 0; i--){
+      const b = wash.bubbles[i];
+      if(--b.life <= 0){ wash.bubbles.splice(i, 1); continue; }
+      b.x += b.vx; b.y += b.vy; b.vx *= .985; b.vy = b.vy * .985 - .018;
+      const k = b.life / b.max;
+      const s = b.r * (1 + (1 - k) * .4);
+      fctx.globalAlpha = Math.min(.72, k * 1.2);
+      fctx.drawImage(washBubble, b.x - s, b.y - s, s*2, s*2);
+      fctx.globalAlpha = 1;
+    }
+
+    wash.bx += (wash.px - wash.bx) * .36;
+    wash.by += (wash.py - wash.by) * .36;
+    const lead = Math.max(-15, Math.min(15, (wash.px - wash.bx) * .55));
+    wash.tilt += (lead - wash.tilt) * .22;
+    washEl.bar.style.transform = `translate3d(${(wash.bx - wash.barW/2).toFixed(1)}px,${(wash.by - wash.barH/2).toFixed(1)}px,0) rotate(${wash.tilt.toFixed(1)}deg)`;
+
+    const now = performance.now();
+    if(wash.dirty && now > wash.nextSample){ wash.nextSample = now + 150; washMeasure(); }
+  }
+
+  function washApplyWon(celebrate){
+    if(wash.won) return;
+    wash.won = true;
+    washEl.stage.classList.add('is-rinsing');
+    washEl.modal.classList.add('is-won');
+    washEl.hint.hidden = true;
+    washEl.fill.style.width = '100%';
+    washEl.num.textContent = '100% clean';
+    washEl.msg.textContent = 'Squeaky clean. Use 1Luvo at checkout for 20% off your first order.';
+    wash.tier = 99;
+    if(celebrate){
+      for(let i = 0; i < 52; i++) washBubbleAt(Math.random() * wash.w, wash.h * (.35 + Math.random() * .6), 3 + Math.random() * 7, true);
+      if(navigator.vibrate) try{ navigator.vibrate(22); }catch(error){}
+      try{ localStorage.setItem(WASH_STORE, '1'); }catch(error){}
+      if(fbEnabled && currentUser){
+        withTimeout(db.collection('usedVouchers').doc(currentUser.uid).set(
+          { washed: true, washedAt: new Date().toISOString() }, { merge: true }
+        )).catch(error => console.error('Unable to record that this account already played the launch wash.', error));
+      }
+    }
+  }
+  function washWin(){ washApplyWon(true); }
+
+  function washReset(){
+    wash.won = false;
+    wash.clean = 0;
+    wash.tier = -1;
+    wash.bubbles.length = 0;
+    washEl.modal.classList.remove('is-won');
+    washEl.stage.classList.remove('is-rinsing', 'is-touched');
+    washEl.hint.hidden = false;
+    try{ localStorage.removeItem(WASH_STORE); }catch(error){}
+    fctx.clearRect(0, 0, wash.w, wash.h);
+    washPaintGrime();
+    washShowProgress();
+  }
+
+  function washSetEntries(hidden){
+    wash.hidden = hidden;
+    document.body.classList.toggle('wash-entries-off', hidden);
+  }
+
+  /* The game stays available until this account has actually spent the code. */
+  async function washRefreshEntries(){
+    if(isStoreAdmin()){
+      washSetEntries(false);
+      if(wash.won && !wash.open) washReset();
+      return;
+    }
+    if(fbEnabled && currentUser){
+      try{
+        const doc = await withTimeout(db.collection('usedVouchers').doc(currentUser.uid).get());
+        const data = doc.exists ? doc.data() : {};
+        washSetEntries(data.used === true);
+        if(!data.used && data.washed) washApplyWon(false);
+        return;
+      }catch(error){
+        console.error('Unable to check whether this account already used the launch code.', error);
+      }
+    }
+    washSetEntries(false);
+  }
+
+  function washLocalPoint(e){
+    const rect = washEl.stage.getBoundingClientRect();
+    return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+  }
+  function washResize(){
+    const rect = washEl.stage.getBoundingClientRect();
+    if(!rect.width) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const keepGrime = wash.w > 0 && wash.clean > .01 && !wash.won;
+    if(keepGrime){
+      holdCan.width = washEl.grime.width; holdCan.height = washEl.grime.height;
+      holdCan.getContext('2d').drawImage(washEl.grime, 0, 0);
+    }
+    wash.dpr = dpr; wash.w = rect.width; wash.h = rect.height;
+    [washEl.grime, washEl.foam].forEach(c => { c.width = Math.round(rect.width*dpr); c.height = Math.round(rect.height*dpr); });
+    gctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    fctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    wash.r = Math.max(20, Math.min(rect.width, rect.height) * .072);
+    wash.barW = washEl.bar.offsetWidth || 94;
+    wash.barH = washEl.bar.offsetHeight || 54;
+    sCan.height = Math.max(14, Math.min(80, Math.round(52 * wash.h / wash.w)));
+    if(keepGrime){
+      gctx.save();
+      gctx.setTransform(1, 0, 0, 1, 0, 0);
+      gctx.clearRect(0, 0, washEl.grime.width, washEl.grime.height);
+      gctx.drawImage(holdCan, 0, 0, holdCan.width, holdCan.height, 0, 0, washEl.grime.width, washEl.grime.height);
+      gctx.restore();
+      wash.painted = true;
+    } else {
+      washPaintGrime();
+    }
+  }
+
+  function washBuildSubs(){
+    washEl.subs.replaceChildren(...products.slice(0, 4).map((p, i) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'wash-sub';
+      btn.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+      const img = document.createElement('img');
+      img.src = p.imageUrls[0];
+      img.alt = '';
+      img.decoding = 'async';
+      const label = document.createElement('span');
+      label.textContent = p.name.replace(' Soap', '');
+      btn.append(img, label);
+      btn.addEventListener('click', () => {
+        washSoap = p;
+        Array.from(washEl.subs.children).forEach(c => c.setAttribute('aria-pressed', 'false'));
+        btn.setAttribute('aria-pressed', 'true');
+        const rgb = washHex(p.color);
+        washEl.bar.style.setProperty('--wash-soap-light', washRgb(washMix(rgb, [255, 255, 255], .42)));
+        washEl.bar.style.setProperty('--wash-soap-dark', washRgb(washMix(rgb, [12, 22, 14], .28)));
+        washEl.soapLabel.textContent = p.name;
+        washMakeSprites();
+      });
+      return btn;
+    }));
+    washSoap = products[0];
+    if(washSoap) washEl.soapLabel.textContent = washSoap.name;
+  }
+
+  function washShowFab(){ wash.fabSeen = true; washEl.fab.classList.add('is-visible'); }
+  function washOpen(){
+    openModal('washModal');
+    wash.open = true;
+    washMakeSprites();
+    requestAnimationFrame(() => {
+      washResize();
+      wash.bx = wash.px = wash.w / 2;
+      wash.by = wash.py = wash.h / 2;
+      if(!wash.won){ wash.tier = -1; washShowProgress(); }
+      if(!wash.raf) wash.raf = requestAnimationFrame(washLoop);
+    });
+  }
+  function washClose(){
+    closeModal('washModal');
+    wash.open = false;
+    wash.dragging = false;
+    washEl.bar.classList.remove('is-active');
+    washShowFab();
+  }
+
+  washMakeSprites();
+  washBuildSubs();
+  let washSaved = null;
+  try{ washSaved = localStorage.getItem(WASH_STORE); }catch(error){}
+  if(washSaved === '1') washApplyWon(false);
+  else washShowProgress();
+  washRefreshEntries();
+
+  washEl.stage.addEventListener('pointerdown', e => {
+    if(wash.won){ return; }
+    e.preventDefault();
+    try{ washEl.stage.setPointerCapture(e.pointerId); }catch(error){}
+    const p = washLocalPoint(e);
+    wash.dragging = true;
+    wash.last = p;
+    wash.px = p.x; wash.py = p.y; wash.bx = p.x; wash.by = p.y;
+    washEl.bar.classList.add('is-active');
+    washEl.stage.classList.add('is-dragging');
+    washStroke(p, p);
   });
+  washEl.stage.addEventListener('pointermove', e => {
+    const list = e.getCoalescedEvents ? e.getCoalescedEvents() : null;
+    const events = list && list.length ? list : [e];
+    for(const ev of events){
+      const p = washLocalPoint(ev);
+      wash.px = p.x; wash.py = p.y;
+      if(wash.dragging && !wash.won) washStroke(wash.last || p, p);
+      wash.last = p;
+    }
+  });
+  ['pointerup', 'pointercancel'].forEach(t => washEl.stage.addEventListener(t, () => {
+    wash.dragging = false;
+    washEl.stage.classList.remove('is-dragging');
+  }));
+  washEl.stage.addEventListener('pointerenter', () => { if(!wash.won) washEl.bar.classList.add('is-active'); });
+  washEl.stage.addEventListener('pointerleave', () => { wash.dragging = false; washEl.bar.classList.remove('is-active'); });
+
+  [washEl.teaser, washEl.fab, washEl.cartHint].forEach(el => el.addEventListener('click', washOpen));
+  washEl.modal.querySelector('.modal-close').addEventListener('click', washClose);
+  washEl.overlay.addEventListener('click', washClose);
+  washEl.replay.addEventListener('click', () => { washReset(); washShowFab(); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape' && wash.open) washClose(); });
+  document.addEventListener('pointerdown', e => { if(wash.open && !washEl.modal.contains(e.target)) washClose(); }, true);
+
+  washEl.copy.addEventListener('click', async () => {
+    const code = '1Luvo';
+    let ok = false;
+    try{
+      if(navigator.clipboard && navigator.clipboard.writeText){ await navigator.clipboard.writeText(code); ok = true; }
+    }catch(error){}
+    if(!ok){
+      try{
+        const t = document.createElement('textarea');
+        t.value = code; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select(); ok = document.execCommand('copy'); t.remove();
+      }catch(error){}
+    }
+    washEl.copy.textContent = ok ? 'Code copied' : 'Code: 1Luvo';
+    setTimeout(() => { washEl.copy.textContent = 'Copy code'; }, 1800);
+  });
+  washEl.use.addEventListener('click', () => {
+    washClose();
+    cartDrawer.classList.add('show');
+    cartOverlay.classList.add('show');
+    const input = document.getElementById('voucherInput');
+    const status = document.getElementById('voucherStatus');
+    input.value = '1Luvo';
+    if(cart.length && !appliedVoucher) document.getElementById('applyVoucher').click();
+    else if(!cart.length) status.textContent = 'Code saved. Add a bar to your cart, then tap Apply.';
+    setTimeout(() => input.focus(), 260);
+  });
+
+  function washFabCheck(){
+    if(wash.fabSeen || wash.open) return;
+    if(window.scrollY > 180) washShowFab();
+  }
+  window.addEventListener('scroll', washFabCheck, { passive: true });
+  setTimeout(washShowFab, 9000);
+  let washResizeTimer = 0;
+  window.addEventListener('resize', () => {
+    clearTimeout(washResizeTimer);
+    washResizeTimer = setTimeout(() => { if(wash.open) washResize(); }, 180);
+  });
+  document.addEventListener('visibilitychange', () => {
+    if(document.hidden && wash.raf){ cancelAnimationFrame(wash.raf); wash.raf = 0; }
+    else if(!document.hidden && wash.open && !wash.raf) wash.raf = requestAnimationFrame(washLoop);
+  });
+
+  let storeBooted = false;
+  function bootStore(){
+    if(storeBooted) return;
+    storeBooted = true;
+    renderHeroPhotos(); renderProducts(); renderCart(); activateStoreInteractions();
+  }
+  /* Fonts can hang on a blocked CDN, so never let them gate the shop. */
+  Promise.race([
+    (document.fonts && document.fonts.ready) || Promise.resolve(),
+    new Promise(resolve => setTimeout(resolve, 1200))
+  ]).then(bootStore);
+  window.addEventListener('load', bootStore);
 
 </script>
 
